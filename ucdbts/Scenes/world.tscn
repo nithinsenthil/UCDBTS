@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bph0o3bjp53sx"]
+[gd_scene load_steps=4 format=3 uid="uid://bph0o3bjp53sx"]
 
 [ext_resource type="Script" uid="uid://cxh2054id48ig" path="res://Scripts/camera_one.gd" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="2_go701"]
+[ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="3_5a7ea"]
 
 [node name="World" type="Node"]
 
@@ -10,3 +11,9 @@ script = ExtResource("1_go701")
 _target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -3.0517578e-05)
+scale = Vector2(0.59791666, 0.50703126)
+texture = ExtResource("3_5a7ea")
