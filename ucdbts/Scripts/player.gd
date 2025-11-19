@@ -26,11 +26,11 @@ func _physics_process(delta: float) -> void:
 		# Change player facing direction
 		if velocity.x > 0:
 			horizontal_direction = Facing.RIGHT
-		else:
+		elif velocity.x < 0:
 			horizontal_direction = Facing.LEFT
-		if velocity.y > 0:
+		if velocity.y < 0:
 			vertical_direction = Facing.UP
-		else:
+		elif velocity.y > 0:
 			vertical_direction = Facing.DOWN
 		
 		change_facing(horizontal_direction + vertical_direction as Facing)

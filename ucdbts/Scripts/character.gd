@@ -4,15 +4,15 @@ extends CharacterBody2D
 # Enum numbers assigned for arithmetic purposes (add horizontal and vertical
 # directions to get final direction eg. LEFT + UP = 4 = UP_LEFT
 enum Facing {
+	DEFAULT = 0,
 	LEFT = 1,
 	RIGHT = 2,
 	UP = 3,
-	DOWN = 6,
-	UP_RIGHT = 5,
-	DOWN_RIGHT = 8,
-	DOWN_LEFT = 7,
 	UP_LEFT = 4,
-	DEFAULT = 0,
+	UP_RIGHT = 5,
+	DOWN = 6,
+	DOWN_LEFT = 7,
+	DOWN_RIGHT = 8,
 }
 
 const DEFAULT_MOVE_VELOCITY = 150
