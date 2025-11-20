@@ -1,5 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://bqjr0826rxubv"]
+[gd_scene load_steps=37 format=3 uid="uid://bqjr0826rxubv"]
 
+[ext_resource type="Texture2D" uid="uid://beplgafmjuvba" path="res://Assets/character/idle_template.png" id="1_xxsvc"]
+[ext_resource type="Texture2D" uid="uid://dtij8wp0q07nc" path="res://Assets/character/run_template.png" id="2_g6unj"]
+[ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/character.gd" id="1_h1ryf"]
 [ext_resource type="Texture2D" uid="uid://beplgafmjuvba" path="res://Assets/character/idle_template.png" id="1_xxsvc"]
 [ext_resource type="Texture2D" uid="uid://dtij8wp0q07nc" path="res://Assets/character/run_template.png" id="2_g6unj"]
 [ext_resource type="Script" uid="uid://cnbwnmcqir8u8" path="res://Scripts/NPC/locomotion.gd" id="3_g6unj"]
@@ -252,6 +255,9 @@ animations = [{
 }]
 
 [node name="NPCExample" type="CharacterBody2D"]
+script = ExtResource("1_h1ryf")
+movement_speed = 50
+metadata/_custom_type_script = "uid://ulol4fu7adlv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -264,3 +270,5 @@ animation = &"run_side"
 [node name="Locomotion" type="Node2D" parent="."]
 script = ExtResource("3_g6unj")
 metadata/_custom_type_script = "uid://cnbwnmcqir8u8"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Locomotion"]
