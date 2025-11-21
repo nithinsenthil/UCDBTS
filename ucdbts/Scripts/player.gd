@@ -1,9 +1,7 @@
 class_name Player
 extends Character
 
-
 var interacting:bool = false
-
 
 func _physics_process(delta: float) -> void:
 	# Get input direction
@@ -26,17 +24,19 @@ func _physics_process(delta: float) -> void:
 		# Change player facing direction
 		if velocity.x > 0:
 			horizontal_direction = Facing.RIGHT
-		else:
+		elif velocity.x < 0:
 			horizontal_direction = Facing.LEFT
-		if velocity.y > 0:
+		if velocity.y < 0:
 			vertical_direction = Facing.UP
-		else:
+		elif velocity.y > 0:
 			vertical_direction = Facing.DOWN
 		
 		change_facing(horizontal_direction + vertical_direction as Facing)
+		change_action(Action.RUN)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		velocity.y = move_toward(velocity.y, 0, movement_speed)
+		change_action(Action.IDLE)
 	
 	super(delta)

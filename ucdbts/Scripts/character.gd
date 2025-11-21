@@ -4,21 +4,28 @@ extends CharacterBody2D
 # Enum numbers assigned for arithmetic purposes (add horizontal and vertical
 # directions to get final direction eg. LEFT + UP = 4 = UP_LEFT
 enum Facing {
+	DEFAULT = 0,
 	LEFT = 1,
 	RIGHT = 2,
 	UP = 3,
-	DOWN = 6,
-	UP_RIGHT = 5,
-	DOWN_RIGHT = 8,
-	DOWN_LEFT = 7,
 	UP_LEFT = 4,
-	DEFAULT = 0,
+	UP_RIGHT = 5,
+	DOWN = 6,
+	DOWN_LEFT = 7,
+	DOWN_RIGHT = 8,
+}
+
+enum Action {
+	IDLE = 0,
+	WALK = 1,
+	RUN = 2,
 }
 
 const DEFAULT_MOVE_VELOCITY = 150
 
 var movement_speed = DEFAULT_MOVE_VELOCITY
 var _facing:Facing = Facing.DOWN
+var _action:Action = Action.IDLE
 
 
 func _ready() -> void:
@@ -31,4 +38,9 @@ func _physics_process(_delta: float) -> void:
 
 func change_facing(new_facing:Facing) -> void:
 	_facing = new_facing
-	signals.character_direction_change.emit(_facing)
+	signals.sprite_change.emit(_facing, _action)
+
+
+func change_action(new_action: Action) -> void:
+	_action = new_action
+	signals.sprite_change.emit(_facing, _action)
