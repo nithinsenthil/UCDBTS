@@ -1,4 +1,4 @@
 class_name Signals
 extends Node
 
-signal character_direction_change(facing:Character.Facing)
+signal sprite_change(facing: Character.Facing, action: Character.Action)

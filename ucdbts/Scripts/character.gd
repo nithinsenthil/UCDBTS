@@ -15,10 +15,17 @@ enum Facing {
 	DOWN_RIGHT = 8,
 }
 
+enum Action {
+	IDLE = 0,
+	WALK = 1,
+	RUN = 2,
+}
+
 const DEFAULT_MOVE_VELOCITY = 150
 
 var movement_speed = DEFAULT_MOVE_VELOCITY
 var _facing:Facing = Facing.DOWN
+var _action:Action = Action.IDLE
 
 
 func _ready() -> void:
@@ -31,4 +38,9 @@ func _physics_process(_delta: float) -> void:
 
 func change_facing(new_facing:Facing) -> void:
 	_facing = new_facing
-	signals.character_direction_change.emit(_facing)
+	signals.sprite_change.emit(_facing, _action)
+
+
+func change_action(new_action: Action) -> void:
+	_action = new_action
+	signals.sprite_change.emit(_facing, _action)
