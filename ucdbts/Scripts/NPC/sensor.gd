@@ -5,4 +5,4 @@ extends Node2D
 var _sensitivity : float
 
 # To be invoked on signals
-@abstract func _on_sense(source: Node2D, strength: float) -> void
+@abstract func _on_sense(source: Vector2, strength: float) -> void

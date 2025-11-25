@@ -1,11 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://bqjr0826rxubv"]
+[gd_scene load_steps=39 format=3 uid="uid://bqjr0826rxubv"]
 
-[ext_resource type="Texture2D" uid="uid://beplgafmjuvba" path="res://Assets/character/idle_template.png" id="1_xxsvc"]
-[ext_resource type="Texture2D" uid="uid://dtij8wp0q07nc" path="res://Assets/character/run_template.png" id="2_g6unj"]
-[ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/character.gd" id="1_h1ryf"]
+[ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/Player/character.gd" id="1_h1ryf"]
 [ext_resource type="Texture2D" uid="uid://beplgafmjuvba" path="res://Assets/character/idle_template.png" id="1_xxsvc"]
 [ext_resource type="Texture2D" uid="uid://dtij8wp0q07nc" path="res://Assets/character/run_template.png" id="2_g6unj"]
 [ext_resource type="Script" uid="uid://cnbwnmcqir8u8" path="res://Scripts/NPC/locomotion.gd" id="3_g6unj"]
+[ext_resource type="Script" uid="uid://b5v770dhitjku" path="res://Scripts/NPC/eyes.gd" id="5_1ig1v"]
+[ext_resource type="Script" uid="uid://cshv1xwljksjt" path="res://Scripts/NPC/ears.gd" id="6_6atyd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ryf"]
 radius = 6.0
@@ -272,3 +272,9 @@ script = ExtResource("3_g6unj")
 metadata/_custom_type_script = "uid://cnbwnmcqir8u8"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Locomotion"]
+
+[node name="Eyes" type="Node2D" parent="."]
+script = ExtResource("5_1ig1v")
+
+[node name="Ears" type="Node2D" parent="."]
+script = ExtResource("6_6atyd")
