@@ -3,6 +3,11 @@ extends Character
 
 var interacting:bool = false
 
+
+func _ready() -> void:
+	movement_speed = 200
+
+
 func _physics_process(delta: float) -> void:
 	# Get input direction
 	var input_dir = Vector2(
