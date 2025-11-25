@@ -18,4 +18,6 @@ signal button_click()
 signal player_visually_sus(location: Vector2, sus_level: float)
 signal player_audially_sus(location: Vector2, sus_level: float)
 
+signal spawn_npc()
+
 @warning_ignore_restore("unused_signal")

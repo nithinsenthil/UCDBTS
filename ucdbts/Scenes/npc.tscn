@@ -272,6 +272,7 @@ script = ExtResource("3_g6unj")
 metadata/_custom_type_script = "uid://cnbwnmcqir8u8"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Locomotion"]
+avoidance_enabled = true
 
 [node name="Eyes" type="Node2D" parent="."]
 script = ExtResource("5_1ig1v")

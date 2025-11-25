@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://lcth78ayyp1k" path="res://Scenes/title.tscn" id="1_a02cp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8j60k"]
-vertices = PackedVector2Array(-48.523438, -36.71875, -59.46875, -0.2265625, -72.64844, 38.453125, -84.57031, 41.101563, -93.82031, 2.546875, -84.52344, -61.609375, -48.976563, -101.59375, -34.226563, -37.257813, 75.15625, -118.78125, 186.13281, -84.28125, 204.67188, 28.773438, 53.039063, 71.046875, -8.1171875, 25.398438, -16.828125, 7.96875)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 0, 6, 8), PackedInt32Array(7, 8, 9, 10, 11, 12, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(195, -92, 216, 36, 51, 82, -16, 32, -26, 12, -41, -27, -50, 3, -65, 47, -92, 53, -104, 3, -94, -66, -54, -111, 76, -129)])
+vertices = PackedVector2Array(-92.50781, -262.97656, 432.3672, -259.20313, 57.742188, 35.5, -407.32813, 17.007813, -345.97656, -184.02344, 196.54688, 202.27344, -96.35156, 237.60156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 5, 6, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(72, 37, 216, 210, -99, 248, -419, 21, -354, -192, -94, -273, 461, -269)])
 
 [node name="World" type="Node"]
 
