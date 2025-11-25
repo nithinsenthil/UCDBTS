@@ -30,7 +30,7 @@ func set_movement_target(target: Vector2):
 func _physics_process(_delta):
 	if _nav_agent.is_navigation_finished():
 		# TODO: get rational next position
-		set_movement_target((_nav_agent.target_position + Vector2(randf_range(-2, 2), randf_range(-2, 2))))
+		set_movement_target((_nav_agent.target_position + Vector2(randf_range(-8, 8), randf_range(-8, 8))))
 		return
 
 	var current_agent_position: Vector2 = global_position
