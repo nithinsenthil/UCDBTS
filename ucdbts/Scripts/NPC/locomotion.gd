@@ -11,7 +11,9 @@ var _tendency_to_wander : float = 1.0
 func _ready():
 	_nav_agent.path_desired_distance = 5.0 * (1 + _tendency_to_wander)
 	_nav_agent.target_desired_distance = 3.0 * (1 + _tendency_to_wander)
-
+	
+	_nav_agent.connect("velocity_computed", _on_navigation_agent_2d_velocity_computed)
+	
 	# Wait for NavigationServer to come up
 	actor_setup.call_deferred()
 
@@ -36,4 +38,9 @@ func _physics_process(_delta):
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = _nav_agent.get_next_path_position()
 
-	_npc.velocity = current_agent_position.direction_to(next_path_position) * _npc.movement_speed
+	var raw_velocity = current_agent_position.direction_to(next_path_position) * _npc.movement_speed
+	_nav_agent.set_velocity(raw_velocity)
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	_npc.set_velocity(safe_velocity)
