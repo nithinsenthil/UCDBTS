@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bqjr0826rxubv"]
+[gd_scene load_steps=41 format=3 uid="uid://bqjr0826rxubv"]
 
 [ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/Player/character.gd" id="1_h1ryf"]
 [ext_resource type="Texture2D" uid="uid://beplgafmjuvba" path="res://Assets/character/idle_template.png" id="1_xxsvc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b5v770dhitjku" path="res://Scripts/NPC/eyes.gd" id="5_1ig1v"]
 [ext_resource type="Script" uid="uid://cshv1xwljksjt" path="res://Scripts/NPC/ears.gd" id="6_6atyd"]
 [ext_resource type="Script" uid="uid://b71w67wrooovm" path="res://Scripts/NPC/brain.gd" id="7_2xkex"]
+[ext_resource type="Script" uid="uid://bm6ylu365gnma" path="res://Scripts/Debugging/npc_debug_label.gd" id="8_8gudg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1ryf"]
 radius = 6.0
@@ -261,6 +262,7 @@ movement_speed = 50
 metadata/_custom_type_script = "uid://ulol4fu7adlv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_h1ryf")
 
@@ -268,7 +270,29 @@ shape = SubResource("CapsuleShape2D_h1ryf")
 sprite_frames = SubResource("SpriteFrames_1ig1v")
 animation = &"run_side"
 
+[node name="Brain" type="Node" parent="."]
+script = ExtResource("7_2xkex")
+
+[node name="Eyes" type="RayCast2D" parent="."]
+visible = false
+script = ExtResource("5_1ig1v")
+
+[node name="Ears" type="RayCast2D" parent="."]
+visible = false
+script = ExtResource("6_6atyd")
+
+[node name="NPCDebugLabel" type="Label" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -12.0
+text = "sd"
+horizontal_alignment = 1
+script = ExtResource("8_8gudg")
+
 [node name="Locomotion" type="Node2D" parent="."]
+visible = false
 script = ExtResource("3_g6unj")
 metadata/_custom_type_script = "uid://cnbwnmcqir8u8"
 
@@ -277,12 +301,3 @@ avoidance_enabled = true
 radius = 15.0
 neighbor_distance = 50.0
 max_neighbors = 5
-
-[node name="Eyes" type="RayCast2D" parent="."]
-script = ExtResource("5_1ig1v")
-
-[node name="Ears" type="RayCast2D" parent="."]
-script = ExtResource("6_6atyd")
-
-[node name="Brain" type="Node" parent="."]
-script = ExtResource("7_2xkex")
