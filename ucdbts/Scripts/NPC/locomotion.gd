@@ -1,7 +1,14 @@
 class_name Locomotion
 extends Node2D
 
-var _tendency_to_wander : float = 1.0
+const MAX_WANDER: float = 3.0
+const MIN_WANDER: float = 0.0
+const MEAN_WANDER: float = 2.0
+const STDEV_WANDER: float = 0.67
+
+const _DEFAULT_DESIRED_DISTANCE = 10.0
+
+var _tendency_to_wander : float = 2.0
 
 @onready var _npc : CharacterBody2D = $".."
 @onready var _nav_agent : NavigationAgent2D = $NavigationAgent2D
@@ -9,8 +16,8 @@ var _tendency_to_wander : float = 1.0
 
 # Code adapted from https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html
 func _ready():
-	_nav_agent.path_desired_distance = 5.0 * (1 + _tendency_to_wander)
-	_nav_agent.target_desired_distance = 3.0 * (1 + _tendency_to_wander)
+	_nav_agent.path_desired_distance = _DEFAULT_DESIRED_DISTANCE * (1 + _tendency_to_wander)
+	_nav_agent.target_desired_distance = _DEFAULT_DESIRED_DISTANCE * (1 + _tendency_to_wander)
 	
 	_nav_agent.connect("velocity_computed", _on_navigation_agent_2d_velocity_computed)
 	
