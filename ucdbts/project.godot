@@ -21,6 +21,7 @@ signals="*res://Scripts/Managers/signals.gd"
 SceneManager="*res://Scripts/Managers/scene_manager.gd"
 interactions="*res://Scripts/interaction_manager.gd"
 npc_manager="*res://Scripts/Managers/npc_manager.gd"
+npc_factory="*res://Scripts/Managers/npc_factory.gd"
 
 [display]
 
