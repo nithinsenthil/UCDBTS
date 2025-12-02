@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bph0o3bjp53sx"]
+[gd_scene load_steps=8 format=3 uid="uid://bph0o3bjp53sx"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="2_go701"]
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="4_8j60k"]
 [ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="5_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://djchl1edhuuic" path="res://Scenes/debug_scene.tscn" id="6_5ukr8"]
+[ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_o06y3"]
 
 [node name="World" type="Node"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_fo5ed")]
 unique_name_in_owner = true
 _target = NodePath("../Player")
+
+[node name="DebugScene" parent="." instance=ExtResource("6_5ukr8")]
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
 unique_name_in_owner = true
@@ -22,6 +26,7 @@ scale = Vector2(0.59791666, 0.50703126)
 texture = ExtResource("3_5a7ea")
 
 [node name="MoneyDisplay" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 script = ExtResource("4_8j60k")
 
 [node name="Label" type="Label" parent="MoneyDisplay"]
@@ -33,3 +38,13 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_fo5ed")
+
+[node name="PocketsDisplay" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+script = ExtResource("7_o06y3")
+
+[node name="Label" type="Label" parent="PocketsDisplay"]
+offset_top = 600.0
+offset_right = 40.0
+offset_bottom = 623.0

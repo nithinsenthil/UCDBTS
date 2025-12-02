@@ -2,10 +2,16 @@ class_name Player
 extends Character
 
 var interacting:bool = false
-
+var pockets:Array[int] = []
+var pocket_size = 2
+var pockets_full:bool = false
+var pockets_full_indicator_on:bool = false
+var total_value:int = 0
+var label_timer:float = 2
 
 func _ready() -> void:
 	movement_speed = 200
+	interactions.player = self
 
 
 func _physics_process(delta: float) -> void:
@@ -44,4 +50,33 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, movement_speed)
 		change_action(Action.IDLE)
 	
+	if pockets_full_indicator_on:
+		label_timer = move_toward(label_timer, 0, delta)
+		if label_timer == 0:
+			pockets_full_indicator_on = false
+			$PocketsFullLabel.visible = false
+	
 	super(delta)
+
+
+func steal_bike(value:int) -> void:
+	pockets.push_back(value)
+	total_value += value
+	if pockets.size() == pocket_size:
+		pockets_full = true
+	%PocketsDisplay.update_label()
+
+
+func enable_pockets_full_label() -> void:
+	pockets_full_indicator_on = true
+	$PocketsFullLabel.visible = true
+	label_timer = 2
+
+
+func sell_bikes() -> void:
+	%MoneyDisplay.sell_item(total_value)
+	%MoneyDisplay.update_label()
+	total_value = 0
+	pockets.clear()
+	pockets_full = false
+	%PocketsDisplay.update_label()
