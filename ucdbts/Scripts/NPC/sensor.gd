@@ -17,7 +17,7 @@ func _ready() -> void:
 # To be invoked on signals
 func _on_sense(source: Vector2, strength: float) -> void:
 	var distanceSq = global_position.distance_squared_to(source)
-	distanceSq = distanceSq / 1000 # TODO scale by some other unit
+	distanceSq = distanceSq / 20000 # TODO scale by some other unit
 	
 	# Intensity decays with the inverse square of distance
 	var new_suspicion: float = strength / distanceSq
