@@ -2,11 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://lcth78ayyp1k" path="res://Scenes/title.tscn" id="1_a02cp"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_8j60k"]
-vertices = PackedVector2Array(-92.50781, -262.97656, 432.3672, -259.20313, 57.742188, 35.5, -407.32813, 17.007813, -345.97656, -184.02344, 196.54688, 202.27344, -96.35156, 237.60156)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 5, 6, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(72, 37, 216, 210, -99, 248, -419, 21, -354, -192, -94, -273, 461, -269)])
-
 [node name="World" type="Node"]
 
 [node name="Title" parent="." instance=ExtResource("1_a02cp")]

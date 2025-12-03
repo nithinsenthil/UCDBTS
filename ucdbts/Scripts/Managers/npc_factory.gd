@@ -2,7 +2,7 @@ class_name NPCFactory
 extends Node
 
 # TODO: Store specific level or spawn points (when that structure is more clear)
-@onready var current_level: Node = get_tree().get_root()
+@onready var current_level: Node = get_tree().root
 
 const _npc_scene: PackedScene = preload("res://Scenes/npc.tscn")
 

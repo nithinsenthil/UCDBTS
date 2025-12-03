@@ -28,8 +28,6 @@ func _ready():
 func actor_setup():
 	# Wait for NavigationServer to come up
 	await get_tree().physics_frame
-	# TODO: initial movement logic
-	set_movement_target(Vector2.ZERO)
 
 
 func set_movement_target(target: Vector2):
@@ -38,8 +36,7 @@ func set_movement_target(target: Vector2):
 
 func _physics_process(_delta):
 	if _nav_agent.is_navigation_finished():
-		# TODO: get rational next position
-		set_movement_target((_nav_agent.target_position + Vector2(randf_range(-8, 8), randf_range(-8, 8))))
+		npc_manager._destroy_npc(_npc)
 		return
 
 	var current_agent_position: Vector2 = global_position
