@@ -8,6 +8,10 @@ extends CameraController
 @export var draw_logic:bool
 
 
+func _ready() -> void:
+	camera_name = "camera_one"
+
+
 func _process(_delta: float) -> void:
 	# target lock
 	_move_camera()
