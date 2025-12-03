@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 signals="*res://Scripts/Managers/signals.gd"
+SceneManager="*res://Scripts/Managers/scene_manager.gd"
 interactions="*res://Scripts/interaction_manager.gd"
 
 [display]

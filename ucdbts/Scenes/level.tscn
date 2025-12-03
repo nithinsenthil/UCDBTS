@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://doiu5813pj3ms"]
+
+[ext_resource type="Script" uid="uid://dt14ydf5tio4r" path="res://Scripts/Cameras/camera_one.gd" id="1_wqkje"]
+[ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="2_0f350"]
+[ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="3_8c0lf"]
+[ext_resource type="Script" path="res://Scripts/money.gd" id="4_754fn"]
+[ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="5_bvt00"]
+[ext_resource type="Script" uid="uid://d0nhq1e7fde0q" path="res://Scripts/Core/scene_switch_trigger.gd" id="6_0f350"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c0lf"]
+size = Vector2(142, 172)
+
+[node name="Level" type="Node"]
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_target")]
+unique_name_in_owner = true
+script = ExtResource("1_wqkje")
+right_bound = 50.0
+left_bound = -50.0
+up_bound = -50.0
+down_bound = 50.0
+_target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_0f350")]
+unique_name_in_owner = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -3.0517578e-05)
+scale = Vector2(0.59791666, 0.50703126)
+texture = ExtResource("3_8c0lf")
+
+[node name="MoneyDisplay" type="CanvasLayer" parent="."]
+script = ExtResource("4_754fn")
+
+[node name="Label" type="Label" parent="MoneyDisplay"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_bvt00")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("6_0f350")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(179, -1)
+shape = SubResource("RectangleShape2D_8c0lf")

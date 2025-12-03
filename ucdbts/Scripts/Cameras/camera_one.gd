@@ -16,6 +16,7 @@ var controls_enabled:bool = true
 
 
 func _ready() -> void:
+	camera_name = "camera_one"
 	signals.toggle_camera_controls.connect(_on_toggle_camera_controls)
 	signals.bike_minigame_start.connect(_on_bike_minigame_start)
 	signals.bike_minigame_end.connect(_on_bike_minigame_end)
