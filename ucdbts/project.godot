@@ -17,7 +17,7 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-signals="*res://Scripts/signals.gd"
+signals="*res://Scripts/Managers/signals.gd"
 interactions="*res://Scripts/interaction_manager.gd"
 
 [display]
