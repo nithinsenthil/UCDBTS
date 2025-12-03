@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://lcth78ayyp1k"]
+
+[ext_resource type="Texture2D" uid="uid://dqklggtv4v1op" path="res://Assets/title_screen.png" id="1_w31pl"]
+[ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
+
+[node name="Title" type="Node2D"]
+position = Vector2(574, 324)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 575.0
+offset_bottom = 325.0
+texture = ExtResource("1_w31pl")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartGameButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 10)
+offset_left = -192.0
+offset_top = -155.0
+offset_right = 148.0
+offset_bottom = -65.0
+text = "Start Game"
+script = ExtResource("2_ekrfg")
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = -185.0
+offset_top = 97.0
+offset_right = 145.0
+offset_bottom = 167.0
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = -190.0
+offset_top = -33.0
+offset_right = 150.0
+offset_bottom = 67.0
+text = "Credits"
+metadata/_edit_use_anchors_ = true

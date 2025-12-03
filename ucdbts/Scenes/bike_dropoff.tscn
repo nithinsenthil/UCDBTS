@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://whwfichg3chs"]
+
+[ext_resource type="Script" uid="uid://bk1cufmtgvd7w" path="res://Scripts/bike_dropoff.gd" id="1_1x4kr"]
+[ext_resource type="Texture2D" uid="uid://d26atd227sbp7" path="res://Assets/icon.svg" id="2_ts2np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pc2c"]
+size = Vector2(49, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tfbk"]
+size = Vector2(154, 116)
+
+[node name="BikeDropoff" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_1x4kr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5000019, 9.536743e-07)
+scale = Vector2(0.3828125, 0.6875)
+texture = ExtResource("2_ts2np")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3pc2c")
+
+[node name="DropoffArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropoffArea"]
+shape = SubResource("RectangleShape2D_0tfbk")
+
+[connection signal="body_entered" from="DropoffArea" to="." method="_on_dropoff_area_body_entered"]
+[connection signal="body_exited" from="DropoffArea" to="." method="_on_dropoff_area_body_exited"]

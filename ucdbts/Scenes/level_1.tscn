@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://u5cbtsx5gtfs"]
+
+[ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
+[ext_resource type="PackedScene" uid="uid://djchl1edhuuic" path="res://Scenes/debug_scene.tscn" id="2_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="3_wrinw"]
+[ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="4_chwpn"]
+[ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="5_af3po"]
+[ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="6_uy8f0"]
+[ext_resource type="Script" path="res://Scripts/pockets.gd" id="7_6r07y"]
+[ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
+size = Vector2(91.5, 173)
+
+[node name="level_1" type="Node"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_lsmp6")]
+unique_name_in_owner = true
+_target = NodePath("../Player")
+
+[node name="DebugScene" parent="." instance=ExtResource("2_xrdnt")]
+
+[node name="Player" parent="." instance=ExtResource("3_wrinw")]
+unique_name_in_owner = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -3.0517578e-05)
+scale = Vector2(0.59791666, 0.50703126)
+texture = ExtResource("4_chwpn")
+
+[node name="MoneyDisplay" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_af3po")
+
+[node name="Label" type="Label" parent="MoneyDisplay"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("6_uy8f0")
+
+[node name="PocketsDisplay" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+script = ExtResource("7_6r07y")
+
+[node name="Label" type="Label" parent="PocketsDisplay"]
+offset_top = 600.0
+offset_right = 40.0
+offset_bottom = 623.0
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("8_xrdnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1326, -509)
+shape = SubResource("RectangleShape2D_wrinw")
