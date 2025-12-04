@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=13 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -72,17 +72,17 @@ max_num_npcs = 72
 metadata/_custom_type_script = "uid://d4mpg3giydsye"
 
 [node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]
-position = Vector2(-1183, -537)
+position = Vector2(-527, -417)
 script = ExtResource("10_chwpn")
 metadata/_custom_type_script = "uid://kik08044h466"
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnManager"]
-position = Vector2(679, -376)
+position = Vector2(816, -134)
 script = ExtResource("10_chwpn")
 metadata/_custom_type_script = "uid://kik08044h466"
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnManager"]
-position = Vector2(-1170, 602)
+position = Vector2(-1174, 600)
 script = ExtResource("10_chwpn")
 metadata/_custom_type_script = "uid://kik08044h466"
 

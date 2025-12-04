@@ -1,17 +1,14 @@
 class_name NPCFactory
 extends Node
 
-# TODO: Store specific level or spawn points (when that structure is more clear)
-@onready var current_level: Node = get_tree().root
-
 const _npc_scene: PackedScene = preload("res://Scenes/npc.tscn")
 
 
 # TODO: add level-specific multipliers?
 func new_npc() -> Character:
 	var new_npc_node = _npc_scene.instantiate()
-	current_level.add_child(new_npc_node)
-	new_npc_node.set_owner(current_level)
+	get_tree().current_scene.add_child(new_npc_node)
+	new_npc_node.set_owner(get_tree().current_scene)
 	
 	new_npc_node.get_node("Brain")._maximum_suspicion = \
 		clampf (randfn(Brain.MEAN_MAX_SUS, Brain.STDEV_MAX_SUS),

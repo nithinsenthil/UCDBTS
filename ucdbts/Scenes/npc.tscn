@@ -299,11 +299,11 @@ script = ExtResource("3_g6unj")
 metadata/_custom_type_script = "uid://cnbwnmcqir8u8"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Locomotion"]
-navigation_layers = 3
 avoidance_enabled = true
-radius = 0.01
-neighbor_distance = 20.0
-max_neighbors = 16
-time_horizon_obstacles = 1.0
-avoidance_layers = 3
-avoidance_mask = 3
+neighbor_distance = 75.0
+max_neighbors = 8
+time_horizon_obstacles = 0.5
+max_speed = 120.0
+avoidance_layers = 2
+avoidance_mask = 2
+avoidance_priority = 0.5
