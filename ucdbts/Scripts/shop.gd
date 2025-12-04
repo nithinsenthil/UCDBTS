@@ -28,9 +28,11 @@ func _check_music():
 
 
 func _on_leave_shop_pressed() -> void:
+	signals.button_click.emit()
 	SceneManager.load_new_scene("res://Scenes/level_1.tscn", "fade_to_black")
 
 
 func _on_sell_bikes_pressed() -> void:
+	signals.button_click.emit()
 	player.sell_bikes()
 	$SellBikes.text = "Sold!"

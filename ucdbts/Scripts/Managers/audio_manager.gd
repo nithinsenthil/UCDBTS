@@ -40,4 +40,4 @@ func _on_player_step():
 	$Player/PlayerStep.play()
 
 func _on_button_click():
-	pass
+	$Effects/MenuButtonClick.play()
