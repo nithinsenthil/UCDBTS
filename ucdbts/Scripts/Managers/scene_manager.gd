@@ -10,15 +10,22 @@ var _loading_screen_scene: PackedScene = preload("res://Scenes/Cameras/loading_s
 var _transition: String
 var _content_path: String
 var _load_progress_timer: Timer
+var audio_manager
+var title_screen
 
 
 func _init() -> void:
-	# self.content_finished_loading.connect(self.test)
 	content_finished_loading.connect(on_content_finished_loading)
 	content_invalid.connect(on_content_invalid)
 	content_failed_to_load.connect(on_content_failed_to_load)
-
-
+	
+func _ready() -> void:
+	# Instantiate singular audio manager to be passed around
+	audio_manager = load("res://Scenes/Audio/audio_manager.tscn").instantiate()
+	
+	# Auto assign audio manager to the first scene
+	get_node("/root/Title").add_child(audio_manager)
+	
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
 	_transition = transition_type
@@ -27,7 +34,6 @@ func load_new_scene(content_path: String, transition_type: String = "fade_to_bla
 
 	print("Starting transisition")
 	loading_screen.start_transition(transition_type)
-	# content_finished_loading.emit("hi")
 	_load_content(content_path)
 	
 
@@ -70,20 +76,17 @@ func monitor_load_status():
 			_load_progress_timer.queue_free()
 			content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
 			print("Emitted content finished loading signal")
-				
 
-func test(content):
-	print("TRIGGERED FROM SCENE MANAGER")
 
 func on_content_finished_loading(content) -> void:
 	print("Loading new scene")
-	# Switch cameras
-	var camera = content.get_node("%Camera")
-	if camera is Camera2D:
-		camera.make_current()
-	else:
-		push_error("No valid camera in new scene")
-
+	
+	# Manager audio transfer
+	audio_manager.fade_music_out()
+	get_tree().current_scene.remove_child(audio_manager)
+	content.add_child(audio_manager)
+	
+	# Scene tranfer
 	get_tree().current_scene.queue_free()
 	get_tree().root.call_deferred("add_child", content)
 	get_tree().set_deferred("current_scene", content)

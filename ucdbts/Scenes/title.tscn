@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://lcth78ayyp1k"]
+[gd_scene load_steps=5 format=3 uid="uid://lcth78ayyp1k"]
 
+[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
 [ext_resource type="Texture2D" uid="uid://dqklggtv4v1op" path="res://Assets/title_screen.png" id="1_w31pl"]
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
+[ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
 
 [node name="Title" type="Node2D"]
 position = Vector2(320, 180)
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_fp2oq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -575.0
@@ -31,6 +34,7 @@ offset_top = 97.0
 offset_right = 145.0
 offset_bottom = 167.0
 text = "Exit"
+script = ExtResource("4_q2qps")
 metadata/_edit_use_anchors_ = true
 
 [node name="CreditsButton" type="Button" parent="."]

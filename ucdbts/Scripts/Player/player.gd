@@ -8,14 +8,23 @@ var pockets_full:bool = false
 var pockets_full_indicator_on:bool = false
 var total_value:int = 0
 var label_timer:float = 2
+var step_timer: Timer
+
 var stealing_speed:float = 1
 
 func _ready() -> void:
 	movement_speed = 200
 	interactions.player = self
+	step_timer = Timer.new()
+	step_timer.wait_time = 0.4
+	step_timer.one_shot = true
+	add_child(step_timer)
+	
 
 
 func _physics_process(delta: float) -> void:
+	get_node("../AudioManager").position = position
+	
 	# Get input direction
 	var input_dir = Vector2(
 	Input.get_action_strength("Right") - Input.get_action_strength("Left"),
@@ -46,6 +55,12 @@ func _physics_process(delta: float) -> void:
 		change_facing(horizontal_direction + vertical_direction as Facing)
 		change_action(Action.RUN)
 		
+		if step_timer.is_stopped():
+			signals.player_step.emit()
+			step_timer.start()
+
+
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		velocity.y = move_toward(velocity.y, 0, movement_speed)
@@ -58,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			$PocketsFullLabel.visible = false
 	
 	super(delta)
-
+	
 
 func steal_bike(value:int) -> void:
 	pockets.push_back(value)
