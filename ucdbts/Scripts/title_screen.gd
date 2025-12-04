@@ -20,6 +20,6 @@ func _check_music():
 	if player == null:
 		return
 	elif !player.playing:
-		audio_manager.fade_music_in(player)
+		audio_manager.fade_music_in(player, -5)
 	
 	timer.start()

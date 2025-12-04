@@ -14,13 +14,13 @@ func _ready() -> void:
 	current_music_player = $Background/Background/TitleScreen
 
 
-func fade_music_in(track: AudioStreamPlayer2D) -> void:
+func fade_music_in(track: AudioStreamPlayer2D, default_db: float) -> void:
 	current_music_player = track # Specify the song
 	current_music_player.volume_db = mute_db # Mute the player
 	current_music_player.play() # Start playing
 	# Use tweens for transition:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(current_music_player, "volume_db", default_music_db, fade_time)
+	tween.tween_property(current_music_player, "volume_db", default_db, fade_time)
 
 
 func fade_music_out() -> void:
