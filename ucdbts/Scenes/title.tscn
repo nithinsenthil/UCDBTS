@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
 
 [node name="Title" type="Node2D"]
-position = Vector2(574, 324)
+position = Vector2(320, 180)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fp2oq")
 
 [node name="TextureRect" type="TextureRect" parent="."]

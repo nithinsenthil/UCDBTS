@@ -51,9 +51,10 @@ layer = 2
 script = ExtResource("7_6r07y")
 
 [node name="Label" type="Label" parent="PocketsDisplay"]
-offset_top = 600.0
-offset_right = 40.0
-offset_bottom = 623.0
+offset_left = 5.0
+offset_top = 296.0
+offset_right = 45.0
+offset_bottom = 319.0
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("8_xrdnt")

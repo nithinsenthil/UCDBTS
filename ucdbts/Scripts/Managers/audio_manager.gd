@@ -11,7 +11,7 @@ var current_music_player : AudioStreamPlayer2D # the current player
 func _ready() -> void:
 	signals.player_step.connect(_on_player_step)
 	signals.button_click.connect(_on_button_click)
-	current_music_player = $Background/Background/TitleScreen
+	current_music_player = $Background/TitleScreen
 
 
 func fade_music_in(track: AudioStreamPlayer2D, default_db: float) -> void:

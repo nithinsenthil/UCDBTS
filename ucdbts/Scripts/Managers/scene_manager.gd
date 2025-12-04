@@ -80,18 +80,13 @@ func monitor_load_status():
 
 func on_content_finished_loading(content) -> void:
 	print("Loading new scene")
-	# Switch cameras
-	var camera = content.get_node("%Camera")
-	if camera is Camera2D:
-		print(camera)
-		camera.make_current()
-	else:
-		push_error("No valid camera in new scene")
 	
+	# Manager audio transfer
 	audio_manager.fade_music_out()
 	get_tree().current_scene.remove_child(audio_manager)
-	#if !get_tree().current_scene.has_node("AudioManager"):
 	content.add_child(audio_manager)
+	
+	# Scene tranfer
 	get_tree().current_scene.queue_free()
 	get_tree().root.call_deferred("add_child", content)
 	get_tree().set_deferred("current_scene", content)
