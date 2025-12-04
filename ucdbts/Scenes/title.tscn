@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
 
 [node name="Title" type="Node2D"]
-position = Vector2(574, 324)
+position = Vector2(320, 180)
+scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -575.0

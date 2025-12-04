@@ -28,15 +28,15 @@ func _ready() -> void:
 	hitbox_shape.shape = hitbox_shape.shape.duplicate()
 
 	if facing == Facing.DOWN or facing == Facing.UP:
-		collision_shape.shape.size.x = 60
-		hitbox_shape.shape.size.x = 96
+		collision_shape.shape.size.x = 40
+		hitbox_shape.shape.size.x = 64
 		if facing == Facing.DOWN:
 			sprite2d.region_rect.position.y = 20
 		else:
 			sprite2d.region_rect.position.y = 40
 	else:
-		collision_shape.shape.size.x = 112
-		hitbox_shape.shape.size.x = 144
+		collision_shape.shape.size.x = 76
+		hitbox_shape.shape.size.x = 96
 		sprite2d.region_rect.position.y = 0
 	
 	if facing == Facing.LEFT:

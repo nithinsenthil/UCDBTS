@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhn0xe4d2dfy" path="res://Assets/bikes/bike1.png" id="2_8f0co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
-size = Vector2(112, 50)
+size = Vector2(76, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikia7"]
 size = Vector2(144, 84)
@@ -15,11 +15,12 @@ collision_mask = 9
 script = ExtResource("1_8f0co")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.42)
 shape = SubResource("RectangleShape2D_5v1tr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7.1525574e-07, -8.34465e-07)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("2_8f0co")
 region_enabled = true
 region_rect = Rect2(0, 0, 40, 20)
