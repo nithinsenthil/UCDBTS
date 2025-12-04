@@ -7,5 +7,5 @@ func _ready() -> void:
 
 func _body_entered_trigger(body):
 	print("Body entered")
-	SceneManager.load_new_scene("res://Scenes/title.tscn", "fade_to_black")
+	SceneManager.load_new_scene("res://Scenes/shop.tscn", "fade_to_black")
 	queue_free()

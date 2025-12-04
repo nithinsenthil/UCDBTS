@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://djchl1edhuuic"]
+[gd_scene load_steps=12 format=4 uid="uid://djchl1edhuuic"]
 
 [ext_resource type="PackedScene" uid="uid://c3q268xofq4j1" path="res://Scenes/bike.tscn" id="1_kb85k"]
-[ext_resource type="Script" uid="uid://bvk7b31000hgi" path="res://Scripts/Debugging/bike_debug_label.gd" id="2_ciys7"]
+[ext_resource type="Script" path="res://Scripts/Debugging/bike_debug_label.gd" id="2_ciys7"]
+[ext_resource type="Texture2D" uid="uid://dhn0xe4d2dfy" path="res://Assets/bikes/bike1.png" id="3_elfx1"]
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="3_emu5f"]
 [ext_resource type="PackedScene" uid="uid://whwfichg3chs" path="res://Scenes/bike_dropoff.tscn" id="4_4w3iw"]
+[ext_resource type="Texture2D" uid="uid://r3328dw3c04d" path="res://Assets/bikes/bike5.png" id="4_tjauk"]
+[ext_resource type="Texture2D" uid="uid://ce6mvsfctuyw8" path="res://Assets/bikes/bike2.png" id="5_cfwnf"]
+[ext_resource type="Texture2D" uid="uid://cfqiv4ug4rfu7" path="res://Assets/bikes/bike4.png" id="6_536f3"]
+[ext_resource type="Texture2D" uid="uid://cqaocehmrkcis" path="res://Assets/bikes/bike3.png" id="7_qh7gd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4w3iw"]
 texture = ExtResource("3_emu5f")
@@ -26,28 +31,33 @@ tile_set = SubResource("TileSet_3pc2c")
 
 [node name="Bike" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(64, -187)
-rotation = 1.5707964
 value = 500
+bike_texture = ExtResource("3_elfx1")
+facing = 0
 
 [node name="Bike2" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(-444, 504)
-rotation = 1.5707964
 stealing_time = 3.0
+bike_texture = ExtResource("4_tjauk")
+facing = 3
 
 [node name="Bike3" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(957, 229)
 value = 150
 stealing_time = 4.0
+bike_texture = ExtResource("5_cfwnf")
 
 [node name="Bike4" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(-41, 506)
-rotation = 1.5707964
 stealing_time = 3.0
+bike_texture = ExtResource("6_536f3")
+facing = 2
 
 [node name="Bike5" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(300, 506)
-rotation = 1.5707964
 stealing_time = 3.0
+bike_texture = ExtResource("7_qh7gd")
+facing = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false

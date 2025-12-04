@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2v1lgg3seqs"]
+
+[ext_resource type="Script" uid="uid://u5jkcwkuaqt6" path="res://Scripts/sell_button.gd" id="1_a0mxf"]
+[ext_resource type="Script" uid="uid://b2sm2m0ptxumu" path="res://Scripts/shop.gd" id="1_io27d"]
+[ext_resource type="Script" uid="uid://di6wrboyr8waj" path="res://Scripts/leave_shop.gd" id="3_fdj0q"]
+[ext_resource type="Script" uid="uid://crqiah8eum3cx" path="res://Scripts/shop_money_label.gd" id="4_fdj0q"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_io27d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SellBikes" type="Button" parent="."]
+offset_left = 50.0
+offset_top = 525.0
+offset_right = 200.0
+offset_bottom = 625.0
+script = ExtResource("1_a0mxf")
+
+[node name="LeaveShop" type="Button" parent="."]
+offset_left = 950.0
+offset_top = 525.0
+offset_right = 1100.0
+offset_bottom = 625.0
+text = "Leave shop"
+script = ExtResource("3_fdj0q")
+
+[node name="ShopMoneyLabel" type="Label" parent="."]
+offset_left = 550.0
+offset_top = 26.0
+offset_right = 719.0
+offset_bottom = 115.0
+script = ExtResource("4_fdj0q")
+
+[connection signal="pressed" from="SellBikes" to="." method="_on_sell_bikes_pressed"]
+[connection signal="pressed" from="LeaveShop" to="." method="_on_leave_shop_pressed"]
