@@ -11,7 +11,7 @@ enum Facing {
 @export var tier:int = 1
 @export var value:int = 100
 @export var stealing_time:float = 5
-@export var sprite = "bike1"
+@export var bike_texture: Texture2D
 @export var facing = Facing.RIGHT
 var steal_timer:float = 5
 var stealing:bool = false
@@ -30,6 +30,8 @@ func _ready() -> void:
 	
 	if facing == Facing.LEFT:
 		sprite2d.flip_h = true
+	
+	sprite2d.texture = bike_texture
 		
 
 func _process(delta: float) -> void:
