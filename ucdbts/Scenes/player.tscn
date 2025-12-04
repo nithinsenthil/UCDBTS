@@ -1,9 +1,9 @@
 [gd_scene load_steps=37 format=3 uid="uid://dmlnsq8mvdrq7"]
 
-[ext_resource type="Script" uid="uid://b0guitoedk4pp" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://b0guitoedk4pp" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b4og6iwucn6ma" path="res://Assets/character/player_idle.png" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://nuqcgpafmxcc" path="res://Assets/character/player_run.png" id="3_fkybt"]
-[ext_resource type="Script" uid="uid://de70p5q4tui7t" path="res://Scripts/character_facing.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://de70p5q4tui7t" path="res://Scripts/Player/character_facing.gd" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
 radius = 16.0
