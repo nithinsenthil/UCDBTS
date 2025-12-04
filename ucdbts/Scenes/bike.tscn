@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dhn0xe4d2dfy" path="res://Assets/bikes/bike1.png" id="2_8f0co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
-size = Vector2(103, 42)
+size = Vector2(112, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikia7"]
-size = Vector2(143, 83)
+size = Vector2(144, 84)
 
 [node name="Bike" type="StaticBody2D"]
 collision_layer = 2
@@ -15,7 +15,6 @@ collision_mask = 9
 script = ExtResource("1_8f0co")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 8)
 shape = SubResource("RectangleShape2D_5v1tr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,7 +28,6 @@ region_rect = Rect2(0, 0, 40, 20)
 collision_layer = 0
 
 [node name="HitboxShape" type="CollisionShape2D" parent="BikeHitbox"]
-position = Vector2(-1.5, 2.5)
 shape = SubResource("RectangleShape2D_ikia7")
 
 [node name="StealingProgressBar" type="ProgressBar" parent="."]

@@ -19,20 +19,30 @@ var _player:Player = interactions.player
 var _position_calculated:bool = false
 @onready var _progress_bar:ProgressBar = $StealingProgressBar
 @onready var sprite2d:Sprite2D = $Sprite2D
+@onready var hitbox_shape = $BikeHitbox/HitboxShape
+@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
-	if facing == Facing.DOWN:
-		sprite2d.region_rect.position.y = 20
-	elif facing == Facing.UP:
-		sprite2d.region_rect.position.y = 40
+	collision_shape.shape = collision_shape.shape.duplicate()
+	hitbox_shape.shape = hitbox_shape.shape.duplicate()
+
+	if facing == Facing.DOWN or facing == Facing.UP:
+		collision_shape.shape.size.x = 60
+		hitbox_shape.shape.size.x = 96
+		if facing == Facing.DOWN:
+			sprite2d.region_rect.position.y = 20
+		else:
+			sprite2d.region_rect.position.y = 40
 	else:
+		collision_shape.shape.size.x = 112
+		hitbox_shape.shape.size.x = 144
 		sprite2d.region_rect.position.y = 0
 	
 	if facing == Facing.LEFT:
 		sprite2d.flip_h = true
 	
 	sprite2d.texture = bike_texture
-		
+	
 
 func _process(delta: float) -> void:
 	if !stealing:
