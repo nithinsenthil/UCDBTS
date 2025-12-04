@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy2v1lgg3seqs"]
+[gd_scene load_steps=5 format=3 uid="uid://dlxdbixj7ednt"]
 
-[ext_resource type="Script" uid="uid://u5jkcwkuaqt6" path="res://Scripts/sell_button.gd" id="1_a0mxf"]
+[ext_resource type="Script" path="res://Scripts/sell_button.gd" id="1_a0mxf"]
 [ext_resource type="Script" uid="uid://b2sm2m0ptxumu" path="res://Scripts/shop.gd" id="1_io27d"]
-[ext_resource type="Script" uid="uid://di6wrboyr8waj" path="res://Scripts/leave_shop.gd" id="3_fdj0q"]
-[ext_resource type="Script" uid="uid://crqiah8eum3cx" path="res://Scripts/shop_money_label.gd" id="4_fdj0q"]
+[ext_resource type="Script" path="res://Scripts/leave_shop.gd" id="3_fdj0q"]
+[ext_resource type="Script" path="res://Scripts/shop_money_label.gd" id="4_fdj0q"]
 
 [node name="shop" type="Node2D"]
 script = ExtResource("1_io27d")
