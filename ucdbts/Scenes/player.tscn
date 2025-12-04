@@ -274,3 +274,9 @@ offset_top = -70.0
 offset_right = 64.0
 offset_bottom = -47.0
 text = "Pockets are full!"
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 10.0
+vertices = PackedVector2Array(-17, -28, 20, -28, 20, 34, -17, 34)
+carve_navigation_mesh = true
+avoidance_layers = 2

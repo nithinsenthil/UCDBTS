@@ -42,7 +42,9 @@ func _physics_process(_delta):
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = _nav_agent.get_next_path_position()
 
-	var raw_velocity = current_agent_position.direction_to(next_path_position) * _npc.movement_speed
+	var raw_velocity = current_agent_position.direction_to(next_path_position)
+	raw_velocity += Vector2.from_angle(2*PI*randf()) / 4.0
+	raw_velocity *= _npc.movement_speed
 	_nav_agent.set_velocity(raw_velocity)
 
 
