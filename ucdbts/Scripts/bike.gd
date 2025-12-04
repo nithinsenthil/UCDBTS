@@ -1,14 +1,36 @@
 class_name Bike
 extends StaticBody2D
 
+enum Facing {
+	UP,
+	RIGHT,
+	DOWN,
+	LEFT
+}
+
 @export var tier:int = 1
 @export var value:int = 100
 @export var stealing_time:float = 5
+@export var sprite = "bike1"
+@export var facing = Facing.RIGHT
 var steal_timer:float = 5
 var stealing:bool = false
 var _player:Player = interactions.player
 var _position_calculated:bool = false
 @onready var _progress_bar:ProgressBar = $StealingProgressBar
+@onready var sprite2d:Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	if facing == Facing.DOWN:
+		sprite2d.region_rect.position.y = 20
+	elif facing == Facing.UP:
+		sprite2d.region_rect.position.y = 40
+	else:
+		sprite2d.region_rect.position.y = 0
+	
+	if facing == Facing.LEFT:
+		sprite2d.flip_h = true
+		
 
 func _process(delta: float) -> void:
 	if !stealing:
