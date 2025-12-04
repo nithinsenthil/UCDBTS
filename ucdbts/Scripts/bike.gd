@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		
 	# Check if player stopped holding interact
 	if Input.is_action_just_released("Interact"):
-		steal_timer = stealing_time
+		steal_timer = stealing_time / _player.stealing_speed
 		stealing = false
 		_player.interacting = false
 		_progress_bar.visible = false
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 	
 	# Increment timer and check if interaction is done
 	steal_timer = move_toward(steal_timer, 0, delta)
-	_progress_bar.value = stealing_time - steal_timer
+	_progress_bar.value = (stealing_time / _player.stealing_speed) - steal_timer
 	if steal_timer == 0:
 		stealing = false
 		_player.interacting = false
@@ -75,10 +75,10 @@ func interact() -> void:
 		signals.interaction_done.emit()
 		return
 	# Reset timer and set stealing to true
-	steal_timer = stealing_time
+	steal_timer = stealing_time / _player.stealing_speed
 	stealing = true
 	_player.interacting = true
-	_progress_bar.max_value = stealing_time
+	_progress_bar.max_value = stealing_time / _player.stealing_speed
 	_progress_bar.value = 0
 	if !_position_calculated:
 		_progress_bar.rotation_degrees = 360 - rotation_degrees
@@ -95,7 +95,7 @@ func _on_bike_hitbox_body_entered(_body: Node2D) -> void:
 func _on_bike_hitbox_body_exited(_body: Node2D) -> void:
 	interactions.current_interaction_object = null
 	if stealing:
-		steal_timer = stealing_time
+		steal_timer = stealing_time / _player.stealing_speed
 		stealing = false
 		_player.interacting = false
 		_progress_bar.visible = false

@@ -3,11 +3,12 @@ extends Character
 
 var interacting:bool = false
 var pockets:Array[int] = []
-var pocket_size = 2
+var pocket_size = 5
 var pockets_full:bool = false
 var pockets_full_indicator_on:bool = false
 var total_value:int = 0
 var label_timer:float = 2
+var stealing_speed:float = 1
 
 func _ready() -> void:
 	movement_speed = 200
@@ -79,4 +80,9 @@ func sell_bikes() -> void:
 	total_value = 0
 	pockets.clear()
 	pockets_full = false
-	%PocketsDisplay.update_label()
+	if %PocketsDisplay != null:
+		%PocketsDisplay.update_label()
+	
+
+func get_money() -> int:
+	return %MoneyDisplay.get_total_funds()
