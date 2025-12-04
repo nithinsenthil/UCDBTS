@@ -22,6 +22,7 @@ var _position_calculated:bool = false
 @onready var hitbox_shape = $BikeHitbox/HitboxShape
 @onready var collision_shape = $CollisionShape2D
 
+# TODO: clean this up (e.g. get rid of magic numbers)
 func _ready() -> void:
 	collision_shape.shape = collision_shape.shape.duplicate()
 	hitbox_shape.shape = hitbox_shape.shape.duplicate()
