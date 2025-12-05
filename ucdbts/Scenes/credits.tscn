@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq3y2vrl5pbug"]
+
+[ext_resource type="Script" uid="uid://bhwsjd6ir4jco" path="res://Scripts/credits.gd" id="1_ccovl"]
+[ext_resource type="Shader" uid="uid://cu60x7xvkvva7" path="res://Scenes/scroll_credits.gdshader" id="1_gryuy"]
+[ext_resource type="Texture2D" uid="uid://c1bgpa45a51xu" path="res://Assets/credit_screen.png" id="2_ccovl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
+shader = ExtResource("1_gryuy")
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_ccovl")
+
+[node name="CreditText" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1bamb")
+offset_right = 1148.0
+offset_bottom = 1300.0
+scale = Vector2(0.557, 0.557)
+texture = ExtResource("2_ccovl")

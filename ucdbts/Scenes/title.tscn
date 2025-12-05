@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lcth78ayyp1k"]
+[gd_scene load_steps=6 format=3 uid="uid://lcth78ayyp1k"]
 
-[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
 [ext_resource type="Texture2D" uid="uid://dqklggtv4v1op" path="res://Assets/title_screen.png" id="1_w31pl"]
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
-[ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
+[ext_resource type="Script" path="res://Scripts/exit_button.gd" id="4_q2qps"]
+[ext_resource type="Script" uid="uid://crep5tpd5hfom" path="res://Scripts/credits_button.gd" id="5_yosvi"]
 
 [node name="Title" type="Node2D"]
 position = Vector2(320, 180)
@@ -11,10 +12,11 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fp2oq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -575.0
-offset_top = -325.0
-offset_right = 575.0
-offset_bottom = 325.0
+offset_left = -638.0
+offset_top = -362.0
+offset_right = 512.0
+offset_bottom = 288.0
+scale = Vector2(1.107731, 1.1074959)
 texture = ExtResource("1_w31pl")
 metadata/_edit_use_anchors_ = true
 
@@ -43,4 +45,5 @@ offset_top = -33.0
 offset_right = 150.0
 offset_bottom = 67.0
 text = "Credits"
+script = ExtResource("5_yosvi")
 metadata/_edit_use_anchors_ = true
