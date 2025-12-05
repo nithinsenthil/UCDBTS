@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq3y2vrl5pbug"]
+[gd_scene load_steps=7 format=3 uid="uid://bq3y2vrl5pbug"]
 
 [ext_resource type="Script" uid="uid://bhwsjd6ir4jco" path="res://Scripts/credits.gd" id="1_ccovl"]
 [ext_resource type="Shader" uid="uid://cu60x7xvkvva7" path="res://Scenes/scroll_credits.gdshader" id="1_gryuy"]
 [ext_resource type="Texture2D" uid="uid://c1bgpa45a51xu" path="res://Assets/credit_screen.png" id="2_ccovl"]
+[ext_resource type="Texture2D" uid="uid://bjgjw5djqgblp" path="res://Assets/shop/leave_button.png" id="4_xelri"]
+[ext_resource type="Script" uid="uid://dqta0yts5p8qd" path="res://Scripts/leave_credits_button.gd" id="5_uah1q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
 shader = ExtResource("1_gryuy")
@@ -17,3 +19,11 @@ offset_right = 1148.0
 offset_bottom = 1300.0
 scale = Vector2(0.557, 0.557)
 texture = ExtResource("2_ccovl")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 102.0
+offset_bottom = 50.0
+texture_normal = ExtResource("4_xelri")
+script = ExtResource("5_uah1q")
