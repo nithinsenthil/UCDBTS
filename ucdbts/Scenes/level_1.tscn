@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=13 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="4_chwpn"]
 [ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="5_af3po"]
 [ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="6_uy8f0"]
-[ext_resource type="Script" path="res://Scripts/pockets.gd" id="7_6r07y"]
+[ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_6r07y"]
 [ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
+[ext_resource type="Script" uid="uid://d4mpg3giydsye" path="res://Scripts/Managers/spawn_manager.gd" id="9_wrinw"]
+[ext_resource type="Script" uid="uid://kik08044h466" path="res://Scripts/NPC/spawn_point.gd" id="10_chwpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
 size = Vector2(91.5, 173)
@@ -62,3 +64,34 @@ script = ExtResource("8_xrdnt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1326, -509)
 shape = SubResource("RectangleShape2D_wrinw")
+
+[node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
+script = ExtResource("9_wrinw")
+spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
+max_num_npcs = 72
+metadata/_custom_type_script = "uid://d4mpg3giydsye"
+
+[node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]
+position = Vector2(-527, -417)
+script = ExtResource("10_chwpn")
+metadata/_custom_type_script = "uid://kik08044h466"
+
+[node name="SpawnPoint2" type="Node2D" parent="SpawnManager"]
+position = Vector2(816, -134)
+script = ExtResource("10_chwpn")
+metadata/_custom_type_script = "uid://kik08044h466"
+
+[node name="SpawnPoint3" type="Node2D" parent="SpawnManager"]
+position = Vector2(-1174, 600)
+script = ExtResource("10_chwpn")
+metadata/_custom_type_script = "uid://kik08044h466"
+
+[node name="SpawnPoint4" type="Node2D" parent="SpawnManager"]
+position = Vector2(1229, 597)
+script = ExtResource("10_chwpn")
+metadata/_custom_type_script = "uid://kik08044h466"
+
+[node name="SpawnPoint5" type="Node2D" parent="SpawnManager"]
+position = Vector2(-737, 13)
+script = ExtResource("10_chwpn")
+metadata/_custom_type_script = "uid://kik08044h466"
