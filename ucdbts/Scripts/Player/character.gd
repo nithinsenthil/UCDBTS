@@ -23,7 +23,7 @@ enum Action {
 
 const DEFAULT_MOVE_VELOCITY = 150
 
-@export var movement_speed = DEFAULT_MOVE_VELOCITY
+var movement_speed = DEFAULT_MOVE_VELOCITY
 var _facing:Facing = Facing.DOWN
 var _action:Action = Action.IDLE
 

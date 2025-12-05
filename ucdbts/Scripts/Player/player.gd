@@ -71,10 +71,6 @@ func _physics_process(delta: float) -> void:
 		if label_timer == 0:
 			pockets_full_indicator_on = false
 			$PocketsFullLabel.visible = false
-
-	# TODO: replace with more sophisticated suspicion generation
-	if Input.get_action_strength("Interact"):
-		signals.player_visually_sus.emit(global_position, 1.0)
 	
 	super(delta)
 	
