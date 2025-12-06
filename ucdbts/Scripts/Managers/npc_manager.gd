@@ -1,8 +1,6 @@
 class_name NPCManager
 extends Node
 
-var num_npcs : int = 0
-
 
 func _ready() -> void:
 	signals.spawn_npc.connect(_spawn_npc)
@@ -20,9 +18,10 @@ func _spawn_npc() -> void:
 	var npc_locomotion: Locomotion = new_npc_node.get_node("Locomotion")
 	npc_locomotion.set_movement_target(new_target)
 	
-	num_npcs += 1
+	spawn_manager.num_npcs += 1
 
 
 func _destroy_npc(npc: Character) -> void:
+	var spawn_manager: SpawnManager = get_tree().current_scene.get_node("SpawnManager")
+	spawn_manager.num_npcs -= 1
 	npc.queue_free()
-	num_npcs -= 1

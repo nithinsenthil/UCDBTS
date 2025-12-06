@@ -68,7 +68,7 @@ shape = SubResource("RectangleShape2D_wrinw")
 [node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
 script = ExtResource("9_wrinw")
 spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
-max_num_npcs = 72
+max_num_npcs = 32
 metadata/_custom_type_script = "uid://d4mpg3giydsye"
 
 [node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]

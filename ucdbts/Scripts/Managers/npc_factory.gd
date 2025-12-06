@@ -4,7 +4,6 @@ extends Node
 const _npc_scene: PackedScene = preload("res://Scenes/npc.tscn")
 
 
-# TODO: add level-specific multipliers?
 func new_npc() -> Character:
 	var new_npc_node = _npc_scene.instantiate()
 	get_tree().current_scene.add_child(new_npc_node)
