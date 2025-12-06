@@ -45,6 +45,7 @@ script = ExtResource("3_udqgf")
 [node name="ProgressSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 3
 position = Vector2(0, -60)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_hqb8h")
