@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://lcth78ayyp1k"]
 
-[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
+[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
 [ext_resource type="Texture2D" uid="uid://cca0vetid86g" path="res://Assets/title_screen2.png" id="2_yosvi"]
-[ext_resource type="Script" path="res://Scripts/exit_button.gd" id="4_q2qps"]
+[ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
 [ext_resource type="Script" uid="uid://crep5tpd5hfom" path="res://Scripts/credits_button.gd" id="5_yosvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yosvi"]
@@ -33,7 +33,7 @@ offset_left = -148.0
 offset_top = -94.0
 offset_right = 152.0
 offset_bottom = 6.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_yosvi")
 text = "Start Game"
 script = ExtResource("2_ekrfg")
@@ -44,7 +44,7 @@ offset_left = -148.0
 offset_top = 144.0
 offset_right = 152.0
 offset_bottom = 244.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_2qdx2")
 text = "Exit"
 script = ExtResource("4_q2qps")
@@ -55,7 +55,7 @@ offset_left = -148.0
 offset_top = 26.0
 offset_right = 152.0
 offset_bottom = 126.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_3eqdi")
 text = "Credits"
 script = ExtResource("5_yosvi")
