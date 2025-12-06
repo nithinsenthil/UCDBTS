@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://lcth78ayyp1k"]
+[gd_scene load_steps=9 format=3 uid="uid://lcth78ayyp1k"]
 
-[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
-[ext_resource type="Texture2D" uid="uid://dqklggtv4v1op" path="res://Assets/title_screen.png" id="1_w31pl"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
-[ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
+[ext_resource type="Texture2D" uid="uid://cca0vetid86g" path="res://Assets/title_screen2.png" id="2_yosvi"]
+[ext_resource type="Script" path="res://Scripts/exit_button.gd" id="4_q2qps"]
+[ext_resource type="Script" uid="uid://crep5tpd5hfom" path="res://Scripts/credits_button.gd" id="5_yosvi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yosvi"]
+bg_color = Color(0.35347423, 0.671336, 0.5721175, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qdx2"]
+bg_color = Color(0.3529412, 0.67058825, 0.57254905, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eqdi"]
+bg_color = Color(0.3529412, 0.67058825, 0.57254905, 1)
 
 [node name="Title" type="Node2D"]
 position = Vector2(320, 180)
@@ -11,36 +21,42 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fp2oq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -575.0
-offset_top = -325.0
-offset_right = 575.0
-offset_bottom = 325.0
-texture = ExtResource("1_w31pl")
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_yosvi")
 metadata/_edit_use_anchors_ = true
 
 [node name="StartGameButton" type="Button" parent="."]
-custom_minimum_size = Vector2(50, 10)
-offset_left = -192.0
-offset_top = -155.0
-offset_right = 148.0
-offset_bottom = -65.0
+offset_left = -148.0
+offset_top = -94.0
+offset_right = 152.0
+offset_bottom = 6.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_yosvi")
 text = "Start Game"
 script = ExtResource("2_ekrfg")
 metadata/_edit_use_anchors_ = true
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = -185.0
-offset_top = 97.0
-offset_right = 145.0
-offset_bottom = 167.0
+offset_left = -148.0
+offset_top = 144.0
+offset_right = 152.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_2qdx2")
 text = "Exit"
 script = ExtResource("4_q2qps")
 metadata/_edit_use_anchors_ = true
 
 [node name="CreditsButton" type="Button" parent="."]
-offset_left = -190.0
-offset_top = -33.0
-offset_right = 150.0
-offset_bottom = 67.0
+offset_left = -148.0
+offset_top = 26.0
+offset_right = 152.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_3eqdi")
 text = "Credits"
+script = ExtResource("5_yosvi")
 metadata/_edit_use_anchors_ = true
