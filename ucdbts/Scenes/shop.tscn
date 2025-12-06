@@ -39,6 +39,9 @@ offset_left = 240.0
 offset_top = 22.0
 offset_right = 369.0
 offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "$50 "
+horizontal_alignment = 2
 script = ExtResource("4_fdj0q")
 
 [node name="Buy1" type="TextureButton" parent="."]
