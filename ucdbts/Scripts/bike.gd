@@ -18,6 +18,7 @@ var stealing:bool = false
 var _player:Player = interactions.player
 var _position_calculated:bool = false
 @onready var _progress_bar:ProgressBar = $StealingProgressBar
+@onready var progress_bar_sprite:Sprite2D = $ProgressSprite
 @onready var sprite2d:Sprite2D = $Sprite2D
 @onready var hitbox_shape = $BikeHitbox/HitboxShape
 @onready var collision_shape = $CollisionShape2D
@@ -54,7 +55,8 @@ func _process(delta: float) -> void:
 		steal_timer = stealing_time / _player.stealing_speed
 		stealing = false
 		_player.interacting = false
-		_progress_bar.visible = false
+		#_progress_bar.visible = false
+		progress_bar_sprite.visible = false
 		signals.interaction_done.emit()
 		return
 	
@@ -84,7 +86,9 @@ func interact() -> void:
 		_progress_bar.rotation_degrees = 360 - rotation_degrees
 		_progress_bar.position = _progress_bar.position.rotated(-rotation)
 		_position_calculated = true
-	_progress_bar.visible = true
+	#_progress_bar.visible = true
+	progress_bar_sprite.position = _progress_bar.position + Vector2(0, 20)
+	progress_bar_sprite.visible = true
 	
 
 
@@ -98,5 +102,6 @@ func _on_bike_hitbox_body_exited(_body: Node2D) -> void:
 		steal_timer = stealing_time / _player.stealing_speed
 		stealing = false
 		_player.interacting = false
-		_progress_bar.visible = false
+		#_progress_bar.visible = false
+		progress_bar_sprite.visible = false
 	signals.interaction_done.emit()
