@@ -43,7 +43,6 @@ facing = 3
 
 [node name="Bike3" parent="." instance=ExtResource("1_kb85k")]
 position = Vector2(957, 229)
-tier = 2
 value = 150
 stealing_time = 4.0
 bike_texture = ExtResource("5_cfwnf")
