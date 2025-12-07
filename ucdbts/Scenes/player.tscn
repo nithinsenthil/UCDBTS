@@ -265,6 +265,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yh6i2")
 animation = &"run_side"
+speed_scale = 1.5
 script = ExtResource("4_vgqql")
 
 [node name="PocketsFullLabel" type="Label" parent="."]
