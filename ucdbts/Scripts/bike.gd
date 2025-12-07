@@ -8,6 +8,9 @@ enum Facing {
 	LEFT
 }
 
+# tier 1: sparkle
+# tier 2: normal, no effect
+# tier 3: rust
 @export var tier:int = 1
 @export var value:int = 100
 @export var stealing_time:float = 5
@@ -18,12 +21,14 @@ var stealing:bool = false
 var _player:Player = interactions.player
 var _position_calculated:bool = false
 @onready var _progress_bar:ProgressBar = $StealingProgressBar
-@onready var sprite2d:Sprite2D = $Sprite2D
+@onready var bike_sprite:Sprite2D = $BikeSprite
 @onready var hitbox_shape = $BikeHitbox/HitboxShape
 @onready var collision_shape = $CollisionShape2D
+@onready var particle_sprite = $ParticleSprite
 
 # TODO: clean this up (e.g. get rid of magic numbers)
 func _ready() -> void:
+	# Configure collision and hitbox shape based on direction.
 	collision_shape.shape = collision_shape.shape.duplicate()
 	hitbox_shape.shape = hitbox_shape.shape.duplicate()
 
@@ -31,18 +36,25 @@ func _ready() -> void:
 		collision_shape.shape.size.x = 40
 		hitbox_shape.shape.size.x = 64
 		if facing == Facing.DOWN:
-			sprite2d.region_rect.position.y = 20
+			bike_sprite.region_rect.position.y = 20
 		else:
-			sprite2d.region_rect.position.y = 40
+			bike_sprite.region_rect.position.y = 40
 	else:
 		collision_shape.shape.size.x = 76
 		hitbox_shape.shape.size.x = 96
-		sprite2d.region_rect.position.y = 0
+		bike_sprite.region_rect.position.y = 0
 	
 	if facing == Facing.LEFT:
-		sprite2d.flip_h = true
+		bike_sprite.flip_h = true
 	
-	sprite2d.texture = bike_texture
+	# Set texture of bike.
+	bike_sprite.texture = bike_texture
+	
+	# Configure particle effect based on tier.
+	if tier == 1:
+		particle_sprite.play_sparkle()
+	elif tier == 3:
+		particle_sprite.play_rust(facing)
 	
 
 func _process(delta: float) -> void:
