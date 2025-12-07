@@ -26,6 +26,7 @@ const DEFAULT_MOVE_VELOCITY = 150
 @export var movement_speed = DEFAULT_MOVE_VELOCITY
 var _facing:Facing = Facing.DOWN
 var _action:Action = Action.IDLE
+@onready var status_sprite = $StatusSprite
 
 
 func _ready() -> void:
