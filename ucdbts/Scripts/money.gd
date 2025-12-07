@@ -3,12 +3,14 @@ extends Node
 
 #var _total_funds = 0
 @onready var money_label: Label = $Label
+@onready var player:Player = %Player
 
 
-func _ready():
+
+func _ready() -> void:
 	# Initialize the label when the scene starts
 	update_label()
 
 
-func update_label():
-	money_label.text = "$" + str(ResourceManager.get_total_funds())
+func update_label() -> void:
+	money_label.text = str(ResourceManager.get_total_funds())
