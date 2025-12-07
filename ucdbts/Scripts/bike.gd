@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 	if steal_timer == 0:
 		stealing = false
 		_player.interacting = false
-		_player.steal_bike(value)
+		ResourceManager.add_bike(self)
 		queue_free()
 
 
@@ -90,7 +90,6 @@ func interact() -> void:
 	progress_bar_sprite.position = _progress_bar.position + Vector2(0, 20)
 	progress_bar_sprite.visible = true
 	
-
 
 func _on_bike_hitbox_body_entered(_body: Node2D) -> void:
 	interactions.current_interaction_object = self

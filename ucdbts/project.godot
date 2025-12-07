@@ -20,6 +20,7 @@ config/icon="res://Assets/icon.svg"
 signals="*res://Scripts/Managers/signals.gd"
 SceneManager="*res://Scripts/Managers/scene_manager.gd"
 interactions="*res://Scripts/interaction_manager.gd"
+ResourceManager="*res://Scripts/Managers/resource_manager.gd"
 
 [display]
 
