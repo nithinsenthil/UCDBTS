@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://lcth78ayyp1k"]
 
-[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="1_fp2oq"]
 [ext_resource type="Script" uid="uid://b1tord2u4n14r" path="res://Scripts/start_game_button.gd" id="2_ekrfg"]
 [ext_resource type="Texture2D" uid="uid://d4egnje5ujbww" path="res://Assets/title/title_template.png" id="2_yosvi"]
 [ext_resource type="Texture2D" uid="uid://cfu3y6b13neak" path="res://Assets/title/title_play.png" id="3_yu0ss"]
 [ext_resource type="Script" uid="uid://xvogy1lxuyi1" path="res://Scripts/exit_button.gd" id="4_q2qps"]
 [ext_resource type="Texture2D" uid="uid://cwj55wv3jwdhm" path="res://Assets/title/title_exit.png" id="5_6aagf"]
-[ext_resource type="Script" path="res://Scripts/credits_button.gd" id="5_yosvi"]
+[ext_resource type="Script" uid="uid://crep5tpd5hfom" path="res://Scripts/credits_button.gd" id="5_yosvi"]
 [ext_resource type="Texture2D" uid="uid://d4fm20ve13jym" path="res://Assets/title/title_credits.png" id="7_kyk5u"]
 [ext_resource type="Texture2D" uid="uid://d2hen1p27u4gc" path="res://Assets/title/title_text.png" id="9_6aagf"]
-[ext_resource type="Script" uid="uid://bxnfnaisj6qke" path="res://Scripts/Visuals/title_text.gd" id="10_kyk5u"]
+[ext_resource type="Script" uid="uid://bxnfnaisj6qke" path="res://Scripts/title_text.gd" id="10_cwqts"]
+[ext_resource type="Script" uid="uid://cad08xvsxfy4n" path="res://Scripts/title_screen.gd" id="10_kyk5u"]
 
 [sub_resource type="Animation" id="Animation_kyk5u"]
 length = 0.001
@@ -51,7 +51,7 @@ _data = {
 
 [node name="Title" type="Node2D"]
 position = Vector2(320, 180)
-script = ExtResource("1_fp2oq")
+script = ExtResource("10_kyk5u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -320.0
@@ -95,7 +95,7 @@ offset_top = -140.0
 offset_right = 199.0
 offset_bottom = -37.0
 texture = ExtResource("9_6aagf")
-script = ExtResource("10_kyk5u")
+script = ExtResource("10_cwqts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TitleText"]
 root_node = NodePath("../..")
