@@ -8,6 +8,7 @@ var _max_pocket_size: int = 5
 var _pocket_full: bool = false
 var _current_level: int = 1
 
+var caught: bool = false
 
 func get_total_funds() -> int:
 	return _total_funds

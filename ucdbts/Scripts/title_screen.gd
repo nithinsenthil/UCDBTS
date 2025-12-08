@@ -1,8 +1,7 @@
-extends Node2D
+extends Node
 
 var timer: Timer
-@onready var audio_manager: AudioManager = $AudioManager
-@onready var player: AudioStreamPlayer2D = $AudioManager/Background/TitleScreen
+
 
 func _ready() -> void:
 	timer = Timer.new()
@@ -11,12 +10,11 @@ func _ready() -> void:
 	timer.timeout.connect(_check_music)
 	add_child(timer)
 	timer.start()
-	player.playing = false
 
 
 func _check_music():
-	#var audio_manager: AudioManager = $AudioManager
-	#var player: AudioStreamPlayer2D = $AudioManager/Background/TitleScreen
+	var audio_manager: AudioManager = $AudioManager
+	var player: AudioStreamPlayer2D = $AudioManager/Background/TitleScreen
 	if player == null:
 		return
 	elif !player.playing:

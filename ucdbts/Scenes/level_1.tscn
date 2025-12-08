@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=20 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
-[ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
+[ext_resource type="Script" uid="uid://d3aujlp8bl6p8" path="res://Scripts/level_1.gd" id="1_wrinw"]
 [ext_resource type="PackedScene" uid="uid://djchl1edhuuic" path="res://Scenes/debug_scene.tscn" id="2_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="3_wrinw"]
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="4_chwpn"]
 [ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="5_af3po"]
 [ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="6_uy8f0"]
 [ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_6r07y"]
-[ext_resource type="Script" uid="uid://tks0g51hayex" path="res://Scenes/day_display.gd" id="7_8i23i"]
+[ext_resource type="Script" path="res://Scenes/day_display.gd" id="7_8i23i"]
 [ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
-[ext_resource type="Script" uid="uid://bhdfyrgtmohsh" path="res://Scripts/bike_1.gd" id="11_uy8f0"]
+[ext_resource type="Script" path="res://Scripts/Managers/spawn_manager.gd" id="9_wrinw"]
+[ext_resource type="Script" path="res://Scripts/NPC/spawn_point.gd" id="10_chwpn"]
+[ext_resource type="Script" path="res://Scripts/bike_1.gd" id="11_uy8f0"]
 [ext_resource type="Script" path="res://Scripts/bike_2.gd" id="12_6r07y"]
 [ext_resource type="Script" path="res://Scripts/bike_3.gd" id="13_6ioyp"]
 [ext_resource type="Script" path="res://Scripts/bike_4.gd" id="14_oovug"]
@@ -141,3 +143,28 @@ script = ExtResource("8_xrdnt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1326, -509)
 shape = SubResource("RectangleShape2D_wrinw")
+
+[node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
+script = ExtResource("9_wrinw")
+spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
+max_num_npcs = 32
+
+[node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]
+position = Vector2(-527, -417)
+script = ExtResource("10_chwpn")
+
+[node name="SpawnPoint2" type="Node2D" parent="SpawnManager"]
+position = Vector2(816, -134)
+script = ExtResource("10_chwpn")
+
+[node name="SpawnPoint3" type="Node2D" parent="SpawnManager"]
+position = Vector2(-1174, 600)
+script = ExtResource("10_chwpn")
+
+[node name="SpawnPoint4" type="Node2D" parent="SpawnManager"]
+position = Vector2(1229, 597)
+script = ExtResource("10_chwpn")
+
+[node name="SpawnPoint5" type="Node2D" parent="SpawnManager"]
+position = Vector2(-737, 13)
+script = ExtResource("10_chwpn")

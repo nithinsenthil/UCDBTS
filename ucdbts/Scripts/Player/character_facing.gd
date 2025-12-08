@@ -1,3 +1,4 @@
+class_name CharacterFacing
 extends AnimatedSprite2D
 
 
