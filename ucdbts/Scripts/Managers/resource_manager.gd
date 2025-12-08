@@ -4,7 +4,7 @@ var _total_funds: int
 var _pocket_value: int
 var _held_item: Item
 var _held_bikes: Array[Bike] = []
-var _max_pocket_size: int = 5
+var _max_pocket_size: int = 2
 var _pocket_full: bool = false
 var _current_level: int = 1
 
@@ -54,6 +54,8 @@ func add_bike(bike: Bike) -> bool:
 	
 	_pocket_value += bike.value
 	_held_bikes.append(bike.duplicate())
+	if _held_bikes.size() >= _max_pocket_size:
+		_pocket_full = true
 
 	print("Bike stolen")
 	var pockets_display = get_node("../level_1/PocketsDisplay") as Pockets
