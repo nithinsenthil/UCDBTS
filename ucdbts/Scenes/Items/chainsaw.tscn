@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf52fubhh6xee"]
+
+[ext_resource type="Script" uid="uid://cefw326w4nups" path="res://Scripts/Items/chainsaw.gd" id="1_2do43"]
+
+[node name="Chainsaw" type="Node2D"]
+script = ExtResource("1_2do43")

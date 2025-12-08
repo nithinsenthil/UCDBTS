@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfooxbowd3gc"]
+
+[ext_resource type="Script" uid="uid://fyi4ofctq6hc" path="res://Scripts/Items/running_shoes.gd" id="1_5llkl"]
+
+[node name="RunningShoes" type="Node2D"]
+script = ExtResource("1_5llkl")

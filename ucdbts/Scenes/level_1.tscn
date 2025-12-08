@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=19 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://d3aujlp8bl6p8" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_6r07y"]
 [ext_resource type="Script" path="res://Scenes/day_display.gd" id="7_8i23i"]
 [ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
+[ext_resource type="Script" path="res://Scenes/held_item.gd" id="11_8yhm2"]
 [ext_resource type="Script" path="res://Scripts/Managers/spawn_manager.gd" id="9_wrinw"]
 [ext_resource type="Script" path="res://Scripts/NPC/spawn_point.gd" id="10_chwpn"]
 [ext_resource type="Script" path="res://Scripts/bike_1.gd" id="11_uy8f0"]
@@ -96,6 +97,14 @@ offset_right = 260.0
 offset_bottom = 354.0
 theme_override_colors/font_color = Color(0.9019608, 0.8627451, 0.8352941, 1)
 text = "Bikes: $1000"
+
+[node name="HeldItem" type="TextureRect" parent="PocketsDisplay"]
+offset_left = 259.0
+offset_top = 322.0
+offset_right = 291.0
+offset_bottom = 354.0
+expand_mode = 1
+script = ExtResource("11_8yhm2")
 
 [node name="Bike1" type="TextureRect" parent="PocketsDisplay"]
 offset_left = 302.0

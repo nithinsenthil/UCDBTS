@@ -51,23 +51,30 @@ func _physics_process(_delta):
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	_npc.set_velocity(safe_velocity)
 	
-	var horizontal_direction:Character.Facing = Character.Facing.DEFAULT
-	var vertical_direction:Character.Facing = Character.Facing.DEFAULT
+	# Normalize movement direction (magnitude of direction is 1)
+	var direction = (Vector2(safe_velocity.x, safe_velocity.y)).normalized()
+	
+	# Horizontal movement has higher magnitude than vertical movement
+	var horiz_stronger = abs(direction.x) > abs(direction.y)
+	
+	var facing: Character.Facing = Character.Facing.DOWN
 	
 	# Change NPC facing direction
-	if safe_velocity.x > 0:
-		horizontal_direction = Character.Facing.RIGHT
-	elif safe_velocity.x < 0:
-		horizontal_direction = Character.Facing.LEFT
-	if safe_velocity.y < 0:
-		vertical_direction = Character.Facing.UP
-	elif safe_velocity.y > 0:
-		vertical_direction = Character.Facing.DOWN
+	if horiz_stronger:
+		if direction.x > 0:
+			facing = Character.Facing.RIGHT
+		elif safe_velocity.x < 0:
+			facing = Character.Facing.LEFT
+	else:
+		if safe_velocity.y < 0:
+			facing = Character.Facing.UP
+		elif safe_velocity.y > 0:
+			facing = Character.Facing.DOWN
 	
-	var animation : NPCFacing = get_node("../AnimatedSprite2D")
+	var animation : NPCSprite = get_node("../Sprite2D")
 	animation._on_sprite_change(
-		horizontal_direction + vertical_direction as Character.Facing,
+		facing,
 		Character.Action.IDLE \
 			if safe_velocity.distance_squared_to(Vector2.ZERO) < 1000
-			else Character.Action.RUN
+			else Character.Action.WALK
 	)
