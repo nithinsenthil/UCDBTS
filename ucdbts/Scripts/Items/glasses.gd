@@ -7,7 +7,7 @@ var camera_zoom_factor:float = 0.5
 func _ready() -> void:
 	item_name  = "Glasses"
 	value = 300
-	texture_path = "res://Assets/icon.svg"
+	texture_path = "res://Assets/items/item2_image.png"
 	item_desc = "See 20% further"
 
 

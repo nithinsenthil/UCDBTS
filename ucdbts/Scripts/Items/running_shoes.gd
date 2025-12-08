@@ -7,7 +7,7 @@ var _speed_increase:float = 50
 func _ready() -> void:
 	item_name = "Running Shoes"
 	value = 300
-	texture_path = "res://Assets/icon.svg"
+	texture_path = "res://Assets/items/item1_image.png"
 	item_desc = "Run 25% faster"
 	
 

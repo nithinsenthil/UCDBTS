@@ -55,18 +55,16 @@ offset_bottom = 240.0
 texture_normal = ExtResource("8_s8dlv")
 
 [node name="FirstItemDisplay" type="TextureRect" parent="."]
-offset_left = 91.0
-offset_top = 75.0
-offset_right = 166.0
-offset_bottom = 150.0
-scale = Vector2(0.75, 0.75)
+offset_left = 39.0
+offset_top = 72.0
+offset_right = 197.0
+offset_bottom = 201.0
 
 [node name="SecondItemDisplay" type="TextureRect" parent="."]
-offset_left = 259.0
-offset_top = 75.0
-offset_right = 334.0
-offset_bottom = 150.0
-scale = Vector2(0.75, 0.75)
+offset_left = 207.0
+offset_top = 72.0
+offset_right = 365.0
+offset_bottom = 201.0
 
 [node name="FirstItemLabel" type="Label" parent="."]
 offset_left = 36.0
