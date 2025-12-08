@@ -20,5 +20,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if suspicion > _maximum_suspicion:
+	if not ResourceManager.caught and suspicion > _maximum_suspicion:
+		ResourceManager.caught = true
+		print("You've been caught!")
 		signals.npc_caught_player.emit()

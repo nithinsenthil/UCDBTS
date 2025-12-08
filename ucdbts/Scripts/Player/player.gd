@@ -19,8 +19,9 @@ func _ready() -> void:
 	step_timer.wait_time = 0.4
 	step_timer.one_shot = true
 	add_child(step_timer)
-	
 
+	signals.npc_caught_player.connect(_on_player_caught)
+	
 
 func _physics_process(delta: float) -> void:
 	get_node("../AudioManager").position = position
@@ -105,3 +106,10 @@ func enable_pockets_full_label() -> void:
 
 # func get_money() -> int:
 # 	return %MoneyDisplay.get_total_funds()
+
+
+func _on_player_caught() -> void:
+	print("Player caught connected")
+	await get_tree().create_timer(2.0).timeout
+	ResourceManager.wipe_resources()
+	SceneManager.load_new_scene("res://Scenes/title.tscn", "fade_to_black")

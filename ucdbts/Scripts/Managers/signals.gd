@@ -19,6 +19,6 @@ signal player_visually_sus(location: Vector2, sus_level: float)
 signal player_audially_sus(location: Vector2, sus_level: float)
 
 signal spawn_npc()
-signal npc_caught_player(npc: Character)
+signal npc_caught_player()
 
 @warning_ignore_restore("unused_signal")
