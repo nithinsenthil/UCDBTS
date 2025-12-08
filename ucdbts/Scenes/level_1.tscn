@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=18 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="5_af3po"]
 [ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="6_uy8f0"]
 [ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_6r07y"]
+[ext_resource type="Script" uid="uid://tks0g51hayex" path="res://Scenes/day_display.gd" id="7_8i23i"]
 [ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
 [ext_resource type="Script" uid="uid://bhdfyrgtmohsh" path="res://Scripts/bike_1.gd" id="11_uy8f0"]
 [ext_resource type="Script" path="res://Scripts/bike_2.gd" id="12_6r07y"]
@@ -44,9 +45,10 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("17_8yhm2")
 
-[node name="DayDispllay" type="CanvasLayer" parent="."]
+[node name="DayDisplay" type="CanvasLayer" parent="."]
+script = ExtResource("7_8i23i")
 
-[node name="Label" type="Label" parent="DayDispllay"]
+[node name="Label" type="Label" parent="DayDisplay"]
 anchors_preset = -1
 anchor_left = -0.01875
 anchor_right = 0.0421875
