@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtij8wp0q07nc" path="res://Assets/character/run_template.png" id="2_g6unj"]
 [ext_resource type="Script" uid="uid://cnbwnmcqir8u8" path="res://Scripts/NPC/locomotion.gd" id="3_g6unj"]
 [ext_resource type="Script" uid="uid://d4d2vwu4r6l4k" path="res://Scripts/NPC/npc_facing.gd" id="4_a6nw3"]
-[ext_resource type="Script" path="res://Scripts/NPC/status_sprite.gd" id="4_qi7up"]
+[ext_resource type="Script" uid="uid://bi4lqjsd3hba8" path="res://Scripts/NPC/status_sprite.gd" id="4_qi7up"]
 [ext_resource type="Script" uid="uid://b5v770dhitjku" path="res://Scripts/NPC/eyes.gd" id="5_1ig1v"]
 [ext_resource type="Script" uid="uid://cshv1xwljksjt" path="res://Scripts/NPC/ears.gd" id="6_6atyd"]
 [ext_resource type="Script" uid="uid://b71w67wrooovm" path="res://Scripts/NPC/brain.gd" id="7_2xkex"]

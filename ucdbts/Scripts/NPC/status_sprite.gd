@@ -1,3 +1,4 @@
+class_name StatusSprite
 extends Sprite2D
 
 

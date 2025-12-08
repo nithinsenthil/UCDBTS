@@ -9,6 +9,15 @@ const STDEV_MAX_SUS: float = 10.0
 var suspicion : float = 0.0
 var _maximum_suspicion : float = INF
 
+@onready var _status : StatusSprite = get_node("../StatusSprite")
+
+
+func _process(_delta: float) -> void:
+	if suspicion > 0.3 * _maximum_suspicion:
+		_status.show_question()
+	if suspicion > 0.8 * _maximum_suspicion:
+		_status.show_exclamation()
+
 
 func _physics_process(_delta: float) -> void:
 	if suspicion > _maximum_suspicion:
