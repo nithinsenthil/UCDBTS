@@ -13,6 +13,8 @@ func _ready() -> void:
 	timer.start()
 	player.playing = false
 
+	ResourceManager.caught = false
+
 
 func _check_music():
 	#var audio_manager: AudioManager = $AudioManager

@@ -19,6 +19,7 @@ var stealing_speed:float = 1
 var camera_zoom_factor:float = 1
 var has_celsius:bool = false
 var celsius:Celsius
+var caught: bool = false
 
 func get_total_funds() -> int:
 	return _total_funds

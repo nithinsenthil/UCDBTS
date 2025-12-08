@@ -176,6 +176,10 @@ texture = ExtResource("3_s19ja")
 hframes = 4
 vframes = 4
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-38, -1, 38, -1, 38, 20, -38, 20)
+avoidance_layers = 3
+
 [connection signal="body_entered" from="BikeHitbox" to="." method="_on_bike_hitbox_body_entered"]
 [connection signal="body_exited" from="BikeHitbox" to="." method="_on_bike_hitbox_body_exited"]
 [connection signal="value_changed" from="StealingProgressBar" to="StealingProgressBar" method="_on_value_changed"]

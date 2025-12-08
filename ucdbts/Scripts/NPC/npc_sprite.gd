@@ -1,6 +1,7 @@
-class_name CharacterFacing
-extends AnimatedSprite2D
+class_name NPCSprite
+extends Sprite2D
 
+@onready var animation_player = $AnimationPlayer
 
 const direction_strings = {
 	Character.Facing.DEFAULT: "front",
@@ -20,9 +21,11 @@ const action_strings = {
 	Character.Action.RUN: "run",
 }
 
+const num_spritesheets = 5
 
-func _ready():
-	signals.sprite_change.connect(_on_sprite_change)
+
+func _ready() -> void:
+	set_spritesheet(randi() % num_spritesheets + 1)
 
 
 func _on_sprite_change(facing: Character.Facing, action: Character.Action) -> void:
@@ -32,4 +35,8 @@ func _on_sprite_change(facing: Character.Facing, action: Character.Action) -> vo
 		flip_h = true
 	else:
 		flip_h = false
-	play(action_strings[action] + "_" + direction_strings[facing])
+	animation_player.play(action_strings[action] + "_" + direction_strings[facing])
+
+
+func set_spritesheet(npc_index: int) -> void:
+	texture = load("res://Assets/character/npc%d_sheet.png" % [npc_index])
