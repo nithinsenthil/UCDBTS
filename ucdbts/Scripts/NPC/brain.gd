@@ -8,6 +8,7 @@ const STDEV_MAX_SUS: float = 10.0
 
 var suspicion : float = 0.0
 var _maximum_suspicion : float = INF
+var _has_caught = false
 
 @onready var _status : StatusSprite = get_node("../StatusSprite")
 
@@ -23,4 +24,4 @@ func _physics_process(_delta: float) -> void:
 	if not ResourceManager.caught and suspicion > _maximum_suspicion:
 		ResourceManager.caught = true
 		print("You've been caught!")
-		signals.npc_caught_player.emit()
+		signals.npc_caught_player.emit(get_node(".."))

@@ -78,34 +78,10 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	
 
-# func steal_bike(value:int) -> void:
-# 	pockets.push_back(value)
-# 	total_value += value
-# 	if pockets.size() == pocket_size:
-# 		pockets_full = true
-# 	%PocketsDisplay.update_label()
-
-
 func enable_pockets_full_label() -> void:
 	pockets_full_indicator_on = true
 	$PocketsFullLabel.visible = true
 	label_timer = 2
-
-
-# func sell_bikes() -> void:
-	# %MoneyDisplay.sell_item(total_value)
-	# %MoneyDisplay.update_label()
-	# total_value = 0
-	# pockets.clear()
-	# pockets_full = false
-	# if %PocketsDisplay != null:
-	# 	%PocketsDisplay.update_label()
-
-	
-	
-
-# func get_money() -> int:
-# 	return %MoneyDisplay.get_total_funds()
 
 
 func _on_player_caught() -> void:
