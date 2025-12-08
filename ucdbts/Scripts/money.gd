@@ -13,4 +13,4 @@ func _ready() -> void:
 
 
 func update_label() -> void:
-	money_label.text = str(ResourceManager.get_total_funds())
+	money_label.text = "Cash: $%d" % [ResourceManager.get_total_funds()]

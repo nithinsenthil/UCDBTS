@@ -1,21 +1,21 @@
 [gd_scene load_steps=18 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_wrinw"]
+[ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
 [ext_resource type="PackedScene" uid="uid://djchl1edhuuic" path="res://Scenes/debug_scene.tscn" id="2_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="3_wrinw"]
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="4_chwpn"]
 [ext_resource type="Script" uid="uid://bewtipkcwvdg" path="res://Scripts/money.gd" id="5_af3po"]
 [ext_resource type="Script" uid="uid://bablma2t4h3vm" path="res://Scripts/Debugging/debug_label.gd" id="6_uy8f0"]
 [ext_resource type="Script" uid="uid://cplyk1jik3cck" path="res://Scripts/pockets.gd" id="7_6r07y"]
-[ext_resource type="Texture2D" uid="uid://10a62s21ftkn" path="res://Assets/ui_elements/coin_display2.png" id="7_chwpn"]
-[ext_resource type="Script" path="res://Scripts/end_level.gd" id="8_xrdnt"]
-[ext_resource type="Texture2D" uid="uid://biylug8advjp6" path="res://Assets/ui_elements/pocket_display.png" id="10_af3po"]
+[ext_resource type="Script" uid="uid://tks0g51hayex" path="res://Scenes/day_display.gd" id="7_8i23i"]
+[ext_resource type="Script" uid="uid://c6yccf4lx8l0t" path="res://Scripts/end_level.gd" id="8_xrdnt"]
 [ext_resource type="Script" uid="uid://bhdfyrgtmohsh" path="res://Scripts/bike_1.gd" id="11_uy8f0"]
-[ext_resource type="Script" uid="uid://dsbcd5ja5mxf4" path="res://Scripts/bike_2.gd" id="12_6r07y"]
-[ext_resource type="Script" uid="uid://bp3lwx7kwr0ww" path="res://Scripts/bike_3.gd" id="13_6ioyp"]
-[ext_resource type="Script" uid="uid://b0odkellsfjw3" path="res://Scripts/bike_4.gd" id="14_oovug"]
-[ext_resource type="Script" uid="uid://beqtptwtchldw" path="res://Scripts/bike_5.gd" id="15_8i23i"]
+[ext_resource type="Script" path="res://Scripts/bike_2.gd" id="12_6r07y"]
+[ext_resource type="Script" path="res://Scripts/bike_3.gd" id="13_6ioyp"]
+[ext_resource type="Script" path="res://Scripts/bike_4.gd" id="14_oovug"]
+[ext_resource type="Script" path="res://Scripts/bike_5.gd" id="15_8i23i"]
+[ext_resource type="Texture2D" uid="uid://u3oxm8cgh4ji" path="res://Assets/ui_elements/hud.png" id="17_8yhm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
 size = Vector2(91.5, 173)
@@ -38,22 +38,43 @@ position = Vector2(0, -3.0517578e-05)
 scale = Vector2(0.59791666, 0.50703126)
 texture = ExtResource("4_chwpn")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("17_8yhm2")
+
+[node name="DayDisplay" type="CanvasLayer" parent="."]
+script = ExtResource("7_8i23i")
+
+[node name="Label" type="Label" parent="DayDisplay"]
+anchors_preset = -1
+anchor_left = -0.01875
+anchor_right = 0.0421875
+offset_left = 189.0
+offset_top = 316.0
+offset_right = 229.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(0.9019608, 0.8627451, 0.8352941, 1)
+text = "Day 1"
+
 [node name="MoneyDisplay" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_af3po")
 
 [node name="Label" type="Label" parent="MoneyDisplay"]
-offset_left = 19.0
-offset_top = 7.0
-offset_right = 59.0
-offset_bottom = 33.0
-theme_override_font_sizes/font_size = 21
+offset_left = 177.0
+offset_top = 327.0
+offset_right = 259.0
+offset_bottom = 343.0
+theme_override_colors/font_color = Color(0.9019608, 0.8627451, 0.8352941, 1)
+text = "Cash: $1000"
 
 [node name="TextureRect" type="TextureRect" parent="MoneyDisplay"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_chwpn")
 
 [node name="Debug" type="Label" parent="."]
 visible = false
@@ -66,57 +87,51 @@ unique_name_in_owner = true
 layer = 2
 script = ExtResource("7_6r07y")
 
-[node name="PocketBoxes" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 2.0
-offset_top = 299.0
-offset_right = 745.0
-offset_bottom = 635.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("10_af3po")
-
 [node name="Label" type="Label" parent="PocketsDisplay"]
-offset_left = 5.0
-offset_top = 296.0
-offset_right = 45.0
-offset_bottom = 319.0
+offset_left = 177.0
+offset_top = 338.0
+offset_right = 260.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0.9019608, 0.8627451, 0.8352941, 1)
+text = "Bikes: $1000"
 
 [node name="Bike1" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 16.0
-offset_top = 323.0
-offset_right = 41.0
-offset_bottom = 348.0
+offset_left = 302.0
+offset_top = 322.0
+offset_right = 334.0
+offset_bottom = 354.0
 expand_mode = 1
 script = ExtResource("11_uy8f0")
 
 [node name="Bike2" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 46.0
+offset_left = 336.0
 offset_top = 322.0
-offset_right = 71.0
-offset_bottom = 347.0
+offset_right = 368.0
+offset_bottom = 354.0
 expand_mode = 1
 script = ExtResource("12_6r07y")
 
 [node name="Bike3" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 75.0
+offset_left = 370.0
 offset_top = 322.0
-offset_right = 100.0
-offset_bottom = 347.0
+offset_right = 402.0
+offset_bottom = 354.0
 expand_mode = 1
 script = ExtResource("13_6ioyp")
 
 [node name="Bike4" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 105.0
-offset_top = 323.0
-offset_right = 130.0
-offset_bottom = 348.0
+offset_left = 404.0
+offset_top = 322.0
+offset_right = 436.0
+offset_bottom = 354.0
 expand_mode = 1
 script = ExtResource("14_oovug")
 
 [node name="Bike5" type="TextureRect" parent="PocketsDisplay"]
-offset_left = 134.0
-offset_top = 323.0
-offset_right = 159.0
-offset_bottom = 348.0
+offset_left = 438.0
+offset_top = 322.0
+offset_right = 470.0
+offset_bottom = 354.0
 expand_mode = 1
 script = ExtResource("15_8i23i")
 
