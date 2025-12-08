@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ts15jv41vyw"]
+
+[ext_resource type="Script" uid="uid://2sku0s50l8tn" path="res://Scripts/Items/celsius.gd" id="1_hq20p"]
+
+[node name="Celsius" type="Node2D"]
+script = ExtResource("1_hq20p")

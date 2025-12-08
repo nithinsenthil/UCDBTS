@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 
 func interact() -> void:
 	_player = interactions.player
-	if _player.pockets_full:
+	if _player.pockets_full or ResourceManager._pocket_full:
 		_player.enable_pockets_full_label()
 		signals.interaction_done.emit()
 		return

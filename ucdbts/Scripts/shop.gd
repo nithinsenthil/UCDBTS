@@ -1,10 +1,24 @@
 extends Node2D
 
-
 var player:Player = interactions.player
 var timer: Timer
+var first_item:Item
+var second_item:Item
+@onready var first_item_display:TextureRect = $FirstItemDisplay
+@onready var second_item_display:TextureRect = $SecondItemDisplay
+@onready var first_item_label:Label = $FirstItemLabel
+@onready var second_item_label:Label = $SecondItemLabel
+@onready var dialogue: Label = $Dialogue
 @onready var audio_manager: AudioManager = $AudioManager
 @onready var audio_player: AudioStreamPlayer2D = $AudioManager/Background/Shop
+
+const default_dialog = "WELCOME. TAKE A LOOK AT TODAY'S ITEMS."
+const dialog_options = [
+	"WELCOME BACK. HAVE ANY NEW BIKES FOR ME?",
+	"ANOTHER DAY ON CAMPUS, I SEE. HOW WAS THE HAUL?",
+	"WELCOME BACK. YOU'RE ALMOST A REGULAR NOW.",
+	"...",
+]
 
 
 func _ready() -> void:
@@ -15,6 +29,16 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start()
 	audio_player.playing = false
+	generate_items()
+	if ResourceManager.has_celsius:
+		ResourceManager.remove_celius()
+	
+	var day = ResourceManager.get_current_level()
+	if day == 1:
+		dialogue.text = default_dialog
+	else:
+		dialogue.text = dialog_options.pick_random()
+
 
 
 func _check_music():
@@ -26,6 +50,23 @@ func _check_music():
 	timer.start()
 
 
+func generate_items() -> void:
+	var one:PackedScene = ResourceManager.items_list.pick_random()
+	var two:PackedScene = ResourceManager.items_list.pick_random()
+	
+	while one == two:
+		two = ResourceManager.items_list.pick_random()
+	first_item = one.instantiate() as Item
+	second_item = two.instantiate() as Item
+	add_child(first_item)
+	add_child(second_item)
+	first_item_display.texture = load(first_item.texture_path)
+	second_item_display.texture = load(second_item.texture_path)
+	first_item_label.text = "%s\n$%d" % [first_item.item_name, first_item.value]
+	second_item_label.text = "%s\n$%d" % [second_item.item_name, second_item.value]
+	$HeldItemsValue.text = "$%d" % ResourceManager.get_pocket_value()
+
+
 func _on_leave_shop_pressed() -> void:
 	signals.button_click.emit()
 	ResourceManager.next_level()
@@ -35,3 +76,20 @@ func _on_leave_shop_pressed() -> void:
 func _on_sell_bikes_pressed() -> void:
 	signals.button_click.emit()
 	ResourceManager.sell_bikes()
+	$HeldItemsValue.text = "$%d" % ResourceManager.get_pocket_value()
+
+
+func _on_buy_1_pressed() -> void:
+	signals.button_click.emit()
+	if ResourceManager.buy_item(first_item):
+		first_item_display.visible = false
+		first_item_label.visible = false
+		$Buy1.visible = false
+
+
+func _on_buy_2_pressed() -> void:
+	signals.button_click.emit()
+	if ResourceManager.buy_item(second_item):
+		second_item_display.visible = false
+		second_item_label.visible = false
+		$Buy2.visible = false
