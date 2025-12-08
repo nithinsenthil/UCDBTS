@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
-[ext_resource type="Script" uid="uid://d3aujlp8bl6p8" path="res://Scripts/level_1.gd" id="1_wrinw"]
+[ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
 [ext_resource type="PackedScene" uid="uid://djchl1edhuuic" path="res://Scenes/debug_scene.tscn" id="2_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://dmlnsq8mvdrq7" path="res://Scenes/player.tscn" id="3_wrinw"]
 [ext_resource type="Texture2D" uid="uid://cbfk6vu0papus" path="res://Assets/environment/ucdavis.jpg" id="4_chwpn"]
@@ -147,7 +147,7 @@ shape = SubResource("RectangleShape2D_wrinw")
 [node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
 script = ExtResource("9_wrinw")
 spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
-max_num_npcs = 32
+max_num_npcs = 50
 
 [node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]
 position = Vector2(-527, -417)
