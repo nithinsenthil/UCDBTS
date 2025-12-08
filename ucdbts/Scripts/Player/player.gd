@@ -58,8 +58,6 @@ func _physics_process(delta: float) -> void:
 		if step_timer.is_stopped():
 			signals.player_step.emit()
 			step_timer.start()
-
-
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
@@ -72,9 +70,9 @@ func _physics_process(delta: float) -> void:
 			pockets_full_indicator_on = false
 			$PocketsFullLabel.visible = false
 
-	# TODO: replace with more sophisticated suspicion generation
-	if Input.get_action_strength("Interact"):
+	if interacting:
 		signals.player_visually_sus.emit(global_position, 1.0)
+		signals.player_audially_sus.emit(global_position, 1.0)
 	
 	super(delta)
 	
