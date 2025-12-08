@@ -29,7 +29,6 @@ func get_held_item() -> Item:
 	return _held_item
 
 
-
 func get_current_level() -> int:
 	return _current_level
 
@@ -67,14 +66,12 @@ func add_bike(bike: Bike) -> bool:
 	return true
 
 
-
 func buy_item(item: Item) -> bool:
 
 	if item == null or item.value > _total_funds:
 		return false
 	
 	_total_funds -= item.value
-
 	if item.get_item_name() == "Celsius":
 		has_celsius = true
 		celsius = item.duplicate()
@@ -89,12 +86,10 @@ func buy_item(item: Item) -> bool:
 	if pockets_display != null:
 		pockets_display.update_label()
 	
-
 	return true
 
 
 func sell_bikes() -> void:
-
 	# Sell bikes
 	_total_funds += _pocket_value
 	clear_pocket()
@@ -112,20 +107,16 @@ func clear_pocket() -> void:
 	_pocket_value = 0
 
 
-
 func wipe_resources() -> void:
 	_total_funds = 0
-
 	_pocket_value = 0
 	_held_item = null
 	_held_bikes.clear()
 	_pocket_full = false
 
 
-
 func next_level() -> void:
 	_current_level += 1
-
 
 
 func is_pocket_full() -> bool:
