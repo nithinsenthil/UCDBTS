@@ -8,8 +8,17 @@ var second_item:Item
 @onready var second_item_display:TextureRect = $SecondItemDisplay
 @onready var first_item_label:Label = $FirstItemLabel
 @onready var second_item_label:Label = $SecondItemLabel
+@onready var dialogue: Label = $Dialogue
 @onready var audio_manager: AudioManager = $AudioManager
 @onready var audio_player: AudioStreamPlayer2D = $AudioManager/Background/Shop
+
+const default_dialog = "WELCOME. TAKE A LOOK AT TODAY'S ITEMS."
+const dialog_options = [
+	"WELCOME BACK. HAVE ANY NEW BIKES FOR ME?",
+	"ANOTHER DAY ON CAMPUS, I SEE. HOW WAS THE HAUL?",
+	"WELCOME BACK. YOU'RE ALMOST A REGULAR NOW.",
+	"...",
+]
 
 
 func _ready() -> void:
@@ -23,6 +32,12 @@ func _ready() -> void:
 	generate_items()
 	if ResourceManager.has_celsius:
 		ResourceManager.remove_celius()
+	
+	var day = ResourceManager.get_current_level()
+	if day == 1:
+		dialogue.text = default_dialog
+	else:
+		dialogue.text = dialog_options.pick_random()
 
 
 
