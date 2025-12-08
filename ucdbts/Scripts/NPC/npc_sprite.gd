@@ -1,4 +1,4 @@
-class_name NPCFacing
+class_name NPCSprite
 extends Sprite2D
 
 @onready var animation_player = $AnimationPlayer
@@ -21,6 +21,12 @@ const action_strings = {
 	Character.Action.RUN: "run",
 }
 
+const num_spritesheets = 5
+
+
+func _ready() -> void:
+	set_spritesheet(randi() % num_spritesheets + 1)
+
 
 func _on_sprite_change(facing: Character.Facing, action: Character.Action) -> void:
 	if (facing == Character.Facing.RIGHT
@@ -30,3 +36,7 @@ func _on_sprite_change(facing: Character.Facing, action: Character.Action) -> vo
 	else:
 		flip_h = false
 	animation_player.play(action_strings[action] + "_" + direction_strings[facing])
+
+
+func set_spritesheet(npc_index: int) -> void:
+	texture = load("res://Assets/character/npc%d_sheet.png" % [npc_index])

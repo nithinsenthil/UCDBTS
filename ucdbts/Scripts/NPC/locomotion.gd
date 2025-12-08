@@ -71,7 +71,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 		elif safe_velocity.y > 0:
 			facing = Character.Facing.DOWN
 	
-	var animation : NPCFacing = get_node("../Sprite2D")
+	var animation : NPCSprite = get_node("../Sprite2D")
 	animation._on_sprite_change(
 		facing,
 		Character.Action.IDLE \
