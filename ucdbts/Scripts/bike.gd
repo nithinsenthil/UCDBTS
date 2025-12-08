@@ -26,6 +26,8 @@ var _position_calculated:bool = false
 func _ready() -> void:
 	collision_shape.shape = collision_shape.shape.duplicate()
 	hitbox_shape.shape = hitbox_shape.shape.duplicate()
+	
+	sprite2d.z_index = 1
 
 	if facing == Facing.DOWN or facing == Facing.UP:
 		collision_shape.shape.size.x = 40

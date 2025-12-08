@@ -1,3 +1,4 @@
+
 class_name BikeDropoff
 extends StaticBody2D
 
