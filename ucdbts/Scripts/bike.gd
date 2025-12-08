@@ -69,6 +69,7 @@ func _process(delta: float) -> void:
 		_player.interacting = false
 		#_progress_bar.visible = false
 		progress_bar_sprite.visible = false
+		signals.stop_stealing.emit(false)
 		signals.interaction_done.emit()
 		return
 	
@@ -78,6 +79,7 @@ func _process(delta: float) -> void:
 	if steal_timer == 0:
 		stealing = false
 		_player.interacting = false
+		signals.stop_stealing.emit(true)
 		ResourceManager.add_bike(self)
 		queue_free()
 
@@ -88,6 +90,8 @@ func interact() -> void:
 		_player.enable_pockets_full_label()
 		signals.interaction_done.emit()
 		return
+
+	signals.start_stealing.emit()
 	# Reset timer and set stealing to true
 	steal_timer = stealing_time / _player.stealing_speed
 	stealing = true
