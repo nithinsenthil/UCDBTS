@@ -1,7 +1,7 @@
 class_name Glasses
 extends Item
 
-var camera_zoom_factor:float = 0.2
+var camera_zoom_factor:float = 0.5
 
 
 func _ready() -> void:
