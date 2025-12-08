@@ -8,11 +8,11 @@ var _max_pocket_size: int = 5
 var _pocket_full: bool = false
 var _current_level: int = 1
 
-var items_list: Array[PackedScene] = [preload("res://Scenes/Items/glasses.tscn"), 
-		preload("res://Scenes/Items/lockpick.tscn"), 
-		preload("res://Scenes/Items/running_shoes.tscn"),
-		preload("res://Scenes/Items/chainsaw.tscn"),
+var items_list: Array[PackedScene] = [preload("res://Scenes/Items/running_shoes.tscn"), 
+		preload("res://Scenes/Items/glasses.tscn"), 
+		preload("res://Scenes/Items/lockpick.tscn"),
 		preload("res://Scenes/Items/bolt_cutters.tscn"),
+		preload("res://Scenes/Items/chainsaw.tscn"),
 		preload("res://Scenes/Items/celsius.tscn")]
 var player_speed:float = 200
 var stealing_speed:float = 1

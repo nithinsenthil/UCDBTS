@@ -8,6 +8,7 @@ func _ready() -> void:
 	item_name  = "Glasses"
 	value = 300
 	texture_path = "res://Assets/items/item2_image.png"
+	icon_path = "res://Assets/items/item2_icon.png"
 	item_desc = "See 20% further"
 
 

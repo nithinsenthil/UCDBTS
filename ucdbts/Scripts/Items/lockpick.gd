@@ -8,6 +8,7 @@ func _ready() -> void:
 	item_name = "Lockpick"
 	value = 10
 	texture_path = "res://Assets/items/item3_image.png"
+	icon_path = "res://Assets/items/item3_icon.png"
 	item_desc = "Steal bikes 20%\nfaster"
 
 

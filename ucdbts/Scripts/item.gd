@@ -2,10 +2,11 @@
 class_name Item
 extends Node2D
 
-var value: int
-var item_name: String
-var texture_path:String
-var item_desc:String
+@export var value: int
+@export var item_name: String
+@export var texture_path:String
+@export var icon_path:String
+@export var item_desc:String
 
 @abstract func apply_item_effect() -> void
 
