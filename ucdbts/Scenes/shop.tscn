@@ -54,5 +54,40 @@ offset_right = 362.0
 offset_bottom = 240.0
 texture_normal = ExtResource("8_s8dlv")
 
+[node name="FirstItemDisplay" type="TextureRect" parent="."]
+offset_left = 91.0
+offset_top = 75.0
+offset_right = 166.0
+offset_bottom = 150.0
+scale = Vector2(0.75, 0.75)
+
+[node name="SecondItemDisplay" type="TextureRect" parent="."]
+offset_left = 259.0
+offset_top = 75.0
+offset_right = 334.0
+offset_bottom = 150.0
+scale = Vector2(0.75, 0.75)
+
+[node name="FirstItemLabel" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 199.0
+offset_right = 76.0
+offset_bottom = 215.0
+
+[node name="SecondItemLabel" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 199.0
+offset_right = 244.0
+offset_bottom = 215.0
+
+[node name="HeldItemsValue" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 299.0
+offset_right = 85.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 32
+
 [connection signal="pressed" from="SellAll" to="." method="_on_sell_bikes_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_shop_pressed"]
+[connection signal="pressed" from="Buy1" to="." method="_on_buy_1_pressed"]
+[connection signal="pressed" from="Buy2" to="." method="_on_buy_2_pressed"]

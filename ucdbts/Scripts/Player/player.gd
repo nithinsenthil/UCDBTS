@@ -19,7 +19,7 @@ func _ready() -> void:
 	step_timer.wait_time = 0.4
 	step_timer.one_shot = true
 	add_child(step_timer)
-	
+	ingest_stats()
 
 
 func _physics_process(delta: float) -> void:
@@ -81,6 +81,13 @@ func _physics_process(delta: float) -> void:
 # 	if pockets.size() == pocket_size:
 # 		pockets_full = true
 # 	%PocketsDisplay.update_label()
+
+
+func ingest_stats() -> void:
+	movement_speed = ResourceManager.player_speed
+	print(movement_speed)
+	stealing_speed = ResourceManager.stealing_speed
+	print(stealing_speed)
 
 
 func enable_pockets_full_label() -> void:
