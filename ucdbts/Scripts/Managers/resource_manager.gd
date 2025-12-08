@@ -4,7 +4,7 @@ var _total_funds: int
 var _pocket_value: int
 var _held_item: Item
 var _held_bikes: Array[Bike] = []
-var _max_pocket_size: int = 2
+var _max_pocket_size: int = 5
 var _pocket_full: bool = false
 var _current_level: int = 1
 
