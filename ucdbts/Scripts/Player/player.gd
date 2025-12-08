@@ -84,8 +84,7 @@ func enable_pockets_full_label() -> void:
 	label_timer = 2
 
 
-func _on_player_caught() -> void:
-	print("Player caught connected")
+func _on_player_caught(_npc: Character) -> void:
 	await get_tree().create_timer(2.0).timeout
 	ResourceManager.wipe_resources()
 	SceneManager.load_new_scene("res://Scenes/title.tscn", "fade_to_black")
