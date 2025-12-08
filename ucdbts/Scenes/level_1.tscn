@@ -927,9 +927,10 @@ sources/4 = SubResource("TileSetAtlasSource_8i23i")
 [node name="level_1" type="Node"]
 script = ExtResource("1_wrinw")
 
-[node name="Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_lsmp6")]
+[node name="Camera" parent="." instance=ExtResource("1_lsmp6")]
 unique_name_in_owner = true
-_target = NodePath("../Player")
+_target = null
+draw_logic = null
 
 [node name="DebugScene" parent="." instance=ExtResource("2_xrdnt")]
 

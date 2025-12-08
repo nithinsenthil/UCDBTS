@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://djchl1edhuuic"]
+[gd_scene load_steps=14 format=4 uid="uid://djchl1edhuuic"]
 
 [ext_resource type="PackedScene" uid="uid://c3q268xofq4j1" path="res://Scenes/bike.tscn" id="1_kb85k"]
 [ext_resource type="Script" uid="uid://bvk7b31000hgi" path="res://Scripts/Debugging/bike_debug_label.gd" id="2_ciys7"]
@@ -10,12 +10,26 @@
 [ext_resource type="Texture2D" uid="uid://cfqiv4ug4rfu7" path="res://Assets/bikes/bike4.png" id="6_536f3"]
 [ext_resource type="Texture2D" uid="uid://cqaocehmrkcis" path="res://Assets/bikes/bike3.png" id="7_qh7gd"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_elfx1"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4w3iw"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4w3iw"]
 texture = ExtResource("3_emu5f")
 texture_region_size = Vector2i(64, 64)
 5:16/0 = 0
+5:16/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4w3iw")
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+<<<<<<< HEAD
 7:16/0 = 0
 19:13/0 = 0
 18:13/0 = 0
@@ -615,10 +629,19 @@ texture_region_size = Vector2i(64, 64)
 4:11/0 = 0
 5:12/0 = 0
 6:11/0 = 0
+=======
+3:3/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_elfx1")
+>>>>>>> main
 
 [sub_resource type="TileSet" id="TileSet_3pc2c"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 2
+<<<<<<< HEAD
+=======
+physics_layer_0/collision_mask = 9
+navigation_layer_0/layers = 1
+navigation_layer_1/layers = 2
+>>>>>>> main
 sources/4 = SubResource("TileSetAtlasSource_4w3iw")
 
 [node name="DebugScene" type="Node"]
@@ -652,6 +675,7 @@ bike_texture = ExtResource("5_cfwnf")
 [node name="Bike4" parent="." instance=ExtResource("1_kb85k")]
 z_index = 3
 position = Vector2(-41, 506)
+tier = 3
 stealing_time = 3.0
 bike_texture = ExtResource("6_536f3")
 facing = 2
@@ -659,6 +683,7 @@ facing = 2
 [node name="Bike5" parent="." instance=ExtResource("1_kb85k")]
 z_index = 3
 position = Vector2(300, 506)
+tier = 2
 stealing_time = 3.0
 bike_texture = ExtResource("7_qh7gd")
 facing = 2

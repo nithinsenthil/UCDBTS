@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy2v1lgg3seqs"]
+[gd_scene load_steps=7 format=3 uid="uid://cy2v1lgg3seqs"]
 
-[ext_resource type="Script" uid="uid://u5jkcwkuaqt6" path="res://Scripts/sell_button.gd" id="1_a0mxf"]
 [ext_resource type="Script" uid="uid://b2sm2m0ptxumu" path="res://Scripts/shop.gd" id="1_io27d"]
 [ext_resource type="Texture2D" uid="uid://p7p6t2nsd4vl" path="res://Assets/shop/shop_template.png" id="2_k6jq0"]
-[ext_resource type="Script" uid="uid://di6wrboyr8waj" path="res://Scripts/leave_shop.gd" id="3_fdj0q"]
 [ext_resource type="Texture2D" uid="uid://c4kexjkhl8ba1" path="res://Assets/shop/sellall_button.png" id="4_3ps1r"]
 [ext_resource type="Script" uid="uid://crqiah8eum3cx" path="res://Scripts/shop_money_label.gd" id="4_fdj0q"]
 [ext_resource type="Texture2D" uid="uid://bjgjw5djqgblp" path="res://Assets/shop/leave_button.png" id="6_ymrm4"]
@@ -23,7 +21,6 @@ offset_top = 293.0
 offset_right = 366.0
 offset_bottom = 333.0
 texture_normal = ExtResource("4_3ps1r")
-script = ExtResource("1_a0mxf")
 
 [node name="Leave" type="TextureButton" parent="."]
 offset_left = 535.0
@@ -32,13 +29,13 @@ offset_right = 627.0
 offset_bottom = 348.0
 theme_type_variation = &"FlatButton"
 texture_normal = ExtResource("6_ymrm4")
-script = ExtResource("3_fdj0q")
 
 [node name="ShopMoneyLabel" type="Label" parent="."]
 offset_left = 240.0
 offset_top = 22.0
 offset_right = 369.0
 offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
 theme_override_font_sizes/font_size = 32
 text = "$50 "
 horizontal_alignment = 2
@@ -58,5 +55,59 @@ offset_right = 362.0
 offset_bottom = 240.0
 texture_normal = ExtResource("8_s8dlv")
 
+[node name="FirstItemDisplay" type="TextureRect" parent="."]
+offset_left = 39.0
+offset_top = 72.0
+offset_right = 197.0
+offset_bottom = 201.0
+
+[node name="SecondItemDisplay" type="TextureRect" parent="."]
+offset_left = 207.0
+offset_top = 72.0
+offset_right = 365.0
+offset_bottom = 201.0
+
+[node name="FirstItemLabel" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 199.0
+offset_right = 76.0
+offset_bottom = 215.0
+
+[node name="SecondItemLabel" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 199.0
+offset_right = 244.0
+offset_bottom = 215.0
+
+[node name="HeldItemsValue" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 298.0
+offset_right = 117.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 32
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OfBikes" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 298.0
+offset_right = 204.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 32
+text = "of bikes"
+
+[node name="Dialogue" type="Label" parent="."]
+offset_left = 438.0
+offset_top = 255.0
+offset_right = 615.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+text = "WELCOME BACK. HAVE ANY NEW BIKES FOR ME?"
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="SellAll" to="." method="_on_sell_bikes_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_shop_pressed"]
+[connection signal="pressed" from="Buy1" to="." method="_on_buy_1_pressed"]
+[connection signal="pressed" from="Buy2" to="." method="_on_buy_2_pressed"]

@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dt14ydf5tio4r" path="res://Scripts/Cameras/camera_one.gd" id="1_375tr"]
 
-[node name="Camera" type="Camera2D" node_paths=PackedStringArray("_target")]
+[node name="Camera" type="Camera2D"]
 script = ExtResource("1_375tr")
 right_bound = 100.0
 left_bound = -100.0
 up_bound = -100.0
 down_bound = 100.0
-_target = NodePath("")
