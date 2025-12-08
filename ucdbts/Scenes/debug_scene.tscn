@@ -89,4 +89,5 @@ offset_bottom = 23.0
 script = ExtResource("2_ciys7")
 
 [node name="BikeDropoff" parent="." instance=ExtResource("4_4w3iw")]
+visible = false
 position = Vector2(1026, -509)
