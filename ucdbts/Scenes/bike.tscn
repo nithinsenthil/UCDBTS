@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://vnjrqrqpi54" path="res://Assets/particles/bike_rust_front.png" id="4_7dki2"]
 [ext_resource type="Script" uid="uid://dl651mewtn06v" path="res://Scenes/particle_sprite.gd" id="4_udqgf"]
 [ext_resource type="Texture2D" uid="uid://djd7sjy87vxjv" path="res://Assets/particles/bike_rust_side.png" id="5_1etuc"]
+[ext_resource type="Texture2D" uid="uid://b1f00kkg56hw2" path="res://Assets/ui_elements/steal_progress.png" id="3_s19ja"]
+[ext_resource type="Script" uid="uid://crbbj1mioxkxm" path="res://Scripts/bike_progress.gd" id="3_udqgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
 size = Vector2(76, 20)
@@ -161,6 +163,18 @@ z_index = 3
 offset_top = -60.0
 offset_right = 4.0
 offset_bottom = -33.0
+show_percentage = false
+script = ExtResource("3_udqgf")
+
+[node name="ProgressSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+position = Vector2(0, -60)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_s19ja")
+hframes = 4
+vframes = 4
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-38, -1, 38, -1, 38, 20, -38, 20)
@@ -168,3 +182,4 @@ avoidance_layers = 3
 
 [connection signal="body_entered" from="BikeHitbox" to="." method="_on_bike_hitbox_body_entered"]
 [connection signal="body_exited" from="BikeHitbox" to="." method="_on_bike_hitbox_body_exited"]
+[connection signal="value_changed" from="StealingProgressBar" to="StealingProgressBar" method="_on_value_changed"]

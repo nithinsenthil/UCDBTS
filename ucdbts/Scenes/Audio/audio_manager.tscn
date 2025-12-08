@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://g7qyvfuhihty"]
+[gd_scene load_steps=8 format=3 uid="uid://g7qyvfuhihty"]
 
 [ext_resource type="Script" uid="uid://by1up8jgobqco" path="res://Scripts/Managers/audio_manager.gd" id="1_mavxc"]
 [ext_resource type="AudioStream" uid="uid://ce4ygkpdvvsou" path="res://Assets/audio/player/player_step.mp3" id="2_mavxc"]
@@ -7,13 +7,18 @@
 [ext_resource type="AudioStream" uid="uid://yqp2sbe0wwnu" path="res://Assets/audio/background/Shop.wav" id="5_lu82t"]
 [ext_resource type="AudioStream" uid="uid://cphmt7hcv0uek" path="res://Assets/audio/effects/MenuButtonClick.mp3" id="6_ft5o5"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ft5o5"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("2_mavxc")
+
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_mavxc")
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="PlayerStep" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("2_mavxc")
+stream = SubResource("AudioStreamRandomizer_ft5o5")
 
 [node name="Background" type="Node2D" parent="."]
 

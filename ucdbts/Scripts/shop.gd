@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var player:Player = interactions.player
 var timer: Timer
 @onready var audio_manager: AudioManager = $AudioManager
@@ -17,8 +18,6 @@ func _ready() -> void:
 
 
 func _check_music():
-	#var audio_manager: AudioManager = $AudioManager
-	#var player: AudioStreamPlayer2D = $AudioManager/Background/TitleScreen
 	if audio_player == null:
 		return
 	elif !audio_player.playing:
@@ -29,10 +28,10 @@ func _check_music():
 
 func _on_leave_shop_pressed() -> void:
 	signals.button_click.emit()
+	ResourceManager.next_level()
 	SceneManager.load_new_scene("res://Scenes/level_1.tscn", "fade_to_black")
 
 
 func _on_sell_bikes_pressed() -> void:
 	signals.button_click.emit()
-	player.sell_bikes()
-	$SellBikes.text = "Sold!"
+	ResourceManager.sell_bikes()
