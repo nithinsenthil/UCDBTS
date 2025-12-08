@@ -113,6 +113,7 @@ func wipe_resources() -> void:
 	_held_item = null
 	_held_bikes.clear()
 	_pocket_full = false
+	_current_level = 1
 
 
 func next_level() -> void:

@@ -13,6 +13,8 @@ signal interaction_done()
 # Audio signals
 signal player_step()
 signal button_click()
+signal start_stealing(item: String)
+signal stop_stealing(stolen: bool)
 
 # NPC Signals
 signal player_visually_sus(location: Vector2, sus_level: float)
