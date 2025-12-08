@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 
 func change_facing(new_facing:Facing) -> void:
 	_facing = new_facing
-	signals.sprite_change.emit(_facing, _action)
+	#signals.sprite_change.emit(_facing, _action)
 
 
 func change_action(new_action: Action) -> void:
