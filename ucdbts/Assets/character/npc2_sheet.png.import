@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnm5ucexn7jix"
-path="res://.godot/imported/npc4_walk.png-8a7d95ffc86723c11a11423fd2b1ba36.ctex"
+uid="uid://ciwdjcwbo283f"
+path="res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/character/npc4_walk.png"
-dest_files=["res://.godot/imported/npc4_walk.png-8a7d95ffc86723c11a11423fd2b1ba36.ctex"]
+source_file="res://Assets/character/npc2_sheet.png"
+dest_files=["res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"]
 
 [params]
 

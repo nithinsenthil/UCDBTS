@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beplgafmjuvba"
-path="res://.godot/imported/idle_template.png-ceea6248af727a9dbbdabe7fbf3d4d1a.ctex"
+uid="uid://cqt11p2rige81"
+path="res://.godot/imported/npc5_sheet.png-01d639488a3f5fd086e33d4df5ca6d19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/character/idle_template.png"
-dest_files=["res://.godot/imported/idle_template.png-ceea6248af727a9dbbdabe7fbf3d4d1a.ctex"]
+source_file="res://Assets/character/npc5_sheet.png"
+dest_files=["res://.godot/imported/npc5_sheet.png-01d639488a3f5fd086e33d4df5ca6d19.ctex"]
 
 [params]
 
