@@ -265,6 +265,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yh6i2")
 animation = &"run_side"
+speed_scale = 1.5
 script = ExtResource("4_vgqql")
 
 [node name="PocketsFullLabel" type="Label" parent="."]
@@ -274,3 +275,8 @@ offset_top = -70.0
 offset_right = 64.0
 offset_bottom = -47.0
 text = "Pockets are full!"
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(0, 20)
+radius = 25.0
+avoidance_layers = 2

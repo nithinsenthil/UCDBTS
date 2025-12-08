@@ -19,8 +19,9 @@ func _ready() -> void:
 	step_timer.wait_time = 0.4
 	step_timer.one_shot = true
 	add_child(step_timer)
-	
 
+	signals.npc_caught_player.connect(_on_player_caught)
+	
 
 func _physics_process(delta: float) -> void:
 	get_node("../AudioManager").position = position
@@ -58,8 +59,6 @@ func _physics_process(delta: float) -> void:
 		if step_timer.is_stopped():
 			signals.player_step.emit()
 			step_timer.start()
-
-
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
@@ -71,17 +70,13 @@ func _physics_process(delta: float) -> void:
 		if label_timer == 0:
 			pockets_full_indicator_on = false
 			$PocketsFullLabel.visible = false
+
+	if interacting:
+		signals.player_visually_sus.emit(global_position, 1.0)
+		signals.player_audially_sus.emit(global_position, 1.0)
 	
 	super(delta)
 	
-
-func steal_bike(value:int) -> void:
-	pockets.push_back(value)
-	total_value += value
-	if pockets.size() == pocket_size:
-		pockets_full = true
-	%PocketsDisplay.update_label()
-
 
 func enable_pockets_full_label() -> void:
 	pockets_full_indicator_on = true
@@ -89,15 +84,7 @@ func enable_pockets_full_label() -> void:
 	label_timer = 2
 
 
-func sell_bikes() -> void:
-	%MoneyDisplay.sell_item(total_value)
-	%MoneyDisplay.update_label()
-	total_value = 0
-	pockets.clear()
-	pockets_full = false
-	if %PocketsDisplay != null:
-		%PocketsDisplay.update_label()
-	
-
-func get_money() -> int:
-	return %MoneyDisplay.get_total_funds()
+func _on_player_caught(_npc: Character) -> void:
+	await get_tree().create_timer(2.0).timeout
+	ResourceManager.wipe_resources()
+	SceneManager.load_new_scene("res://Scenes/title.tscn", "fade_to_black")
