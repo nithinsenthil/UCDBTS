@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://b0odkellsfjw3" path="res://Scripts/bike_4.gd" id="14_oovug"]
 [ext_resource type="Script" uid="uid://beqtptwtchldw" path="res://Scripts/bike_5.gd" id="15_8i23i"]
 [ext_resource type="Texture2D" uid="uid://u3oxm8cgh4ji" path="res://Assets/ui_elements/hud.png" id="17_8yhm2"]
-[ext_resource type="Texture2D" uid="uid://ejumovxs6da1" path="res://Assets/ui_elements/exit_sign.png" id="20_6ssoq"]
+[ext_resource type="Script" uid="uid://bysaeqyiomll0" path="res://Scripts/control_menu_group.gd" id="20_dlmop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
 size = Vector2(91.5, 173)
@@ -41,55 +41,6 @@ z_index = -1
 position = Vector2(0, -3.0517578e-05)
 scale = Vector2(0.59791666, 0.50703126)
 texture = ExtResource("4_chwpn")
-
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-z_index = 19
-z_as_relative = false
-
-[node name="ControlMenu" type="ColorRect" parent="CanvasGroup"]
-offset_left = -132.0
-offset_top = -78.0
-offset_right = -92.0
-offset_bottom = -38.0
-scale = Vector2(6.9599996, 4.1999993)
-mouse_filter = 2
-color = Color(0.48188096, 0.36696061, 0.2842038, 1)
-
-[node name="ExitControlMenu" type="Button" parent="CanvasGroup"]
-offset_left = 131.0
-offset_top = -77.0
-offset_right = 189.0
-offset_bottom = -19.0
-scale = Vector2(0.25, 0.25)
-icon = ExtResource("20_6ssoq")
-
-[node name="Label" type="Label" parent="CanvasGroup"]
-offset_left = -123.0
-offset_top = -62.0
-offset_right = 140.0
-offset_bottom = 68.0
-text = "Use WASD to move around the world.
-Click F to steal a bike.
-You can store up to 5 bikes in your pocket.
-
-
-
-Have fun and don't get caught!"
-
-[node name="Label2" type="Label" parent="CanvasGroup"]
-offset_left = -123.0
-offset_top = -50.0
-offset_right = 140.0
-offset_bottom = 80.0
-theme_override_constants/line_spacing = 3
-theme_override_constants/paragraph_spacing = -4
-text = "
-
-
-To sell a bike, go to the shop (located at the top right
-of the map). At the shop, you can also buy power-ups
-to help you steal bikes faster and evade detection.
-"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -227,3 +178,45 @@ script = ExtResource("10_chwpn")
 [node name="SpawnPoint5" type="Node2D" parent="SpawnManager"]
 position = Vector2(-737, 13)
 script = ExtResource("10_chwpn")
+
+[node name="ControlMenuGroup" type="CanvasGroup" parent="."]
+z_index = 20
+script = ExtResource("20_dlmop")
+
+[node name="ControlMenu" type="ColorRect" parent="ControlMenuGroup"]
+offset_left = -132.0
+offset_top = -78.0
+offset_right = -92.0
+offset_bottom = -38.0
+scale = Vector2(6.9599996, 4.1999993)
+mouse_filter = 2
+color = Color(0.48188096, 0.36696061, 0.2842038, 1)
+
+[node name="Label" type="Label" parent="ControlMenuGroup"]
+offset_left = -124.0
+offset_top = -68.0
+offset_right = 139.0
+offset_bottom = 81.0
+text = "Use WASD to move around the world.
+Click F to steal a bike.
+You can store up to 5 bikes in your pocket.
+
+
+
+Click R to toggle this menu, and start.
+Have fun and don't get caught!"
+
+[node name="Label2" type="Label" parent="ControlMenuGroup"]
+offset_left = -124.0
+offset_top = -54.0
+offset_right = 139.0
+offset_bottom = 76.0
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = -4
+text = "
+
+
+To sell a bike, go to the shop (located at the top right
+of the map). At the shop, you can also buy power-ups
+to help you steal bikes faster and evade detection.
+"
