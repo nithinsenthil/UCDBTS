@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciwdjcwbo283f"
-path="res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"
+uid="uid://chtcsxrmkf5j0"
+path="res://.godot/imported/tilemap_packed.png-3cda1d058b8dee41715bd340cea497b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/character/npc2_sheet.png"
-dest_files=["res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"]
+source_file="res://Assets/tilemap_packed.png"
+dest_files=["res://.godot/imported/tilemap_packed.png-3cda1d058b8dee41715bd340cea497b0.ctex"]
 
 [params]
 

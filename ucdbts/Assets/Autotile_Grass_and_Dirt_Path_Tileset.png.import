@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciwdjcwbo283f"
-path="res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"
+uid="uid://dcosbo7si27vw"
+path="res://.godot/imported/Autotile_Grass_and_Dirt_Path_Tileset.png-acd5fbae07909f3c18247fcd3ade3188.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/character/npc2_sheet.png"
-dest_files=["res://.godot/imported/npc2_sheet.png-c3479d47bc97d012f467163e6d0d8c6e.ctex"]
+source_file="res://Assets/Autotile_Grass_and_Dirt_Path_Tileset.png"
+dest_files=["res://.godot/imported/Autotile_Grass_and_Dirt_Path_Tileset.png-acd5fbae07909f3c18247fcd3ade3188.ctex"]
 
 [params]
 

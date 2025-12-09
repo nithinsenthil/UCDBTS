@@ -26,6 +26,7 @@ const num_spritesheets = 5
 
 func _ready() -> void:
 	set_spritesheet(randi() % num_spritesheets + 1)
+	z_index = 3
 
 
 func _on_sprite_change(facing: Character.Facing, action: Character.Action) -> void:

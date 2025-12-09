@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g7qyvfuhihty"]
+[gd_scene load_steps=13 format=3 uid="uid://g7qyvfuhihty"]
 
 [ext_resource type="Script" uid="uid://by1up8jgobqco" path="res://Scripts/Managers/audio_manager.gd" id="1_mavxc"]
 [ext_resource type="AudioStream" uid="uid://ce4ygkpdvvsou" path="res://Assets/audio/player/player_step.mp3" id="2_mavxc"]
@@ -6,6 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://cp3pi1hqu81gm" path="res://Assets/audio/background/Level.mp3" id="4_8l041"]
 [ext_resource type="AudioStream" uid="uid://yqp2sbe0wwnu" path="res://Assets/audio/background/Shop.wav" id="5_lu82t"]
 [ext_resource type="AudioStream" uid="uid://cphmt7hcv0uek" path="res://Assets/audio/effects/MenuButtonClick.mp3" id="6_ft5o5"]
+[ext_resource type="AudioStream" uid="uid://6t76m0pvpggw" path="res://Assets/audio/theft/Default.mp3" id="7_ieupc"]
+[ext_resource type="AudioStream" uid="uid://cg1fa2oklxv8p" path="res://Assets/audio/theft/BrokenLock.mp3" id="8_b8e2d"]
+[ext_resource type="AudioStream" uid="uid://3dnmujd116pe" path="res://Assets/audio/theft/Chainsaw.mp3" id="9_nmqn7"]
+[ext_resource type="AudioStream" uid="uid://dhm064kemhs36" path="res://Assets/audio/theft/BoltCutters.mp3" id="10_nmqn7"]
+[ext_resource type="AudioStream" uid="uid://cr20qg8gcdqpu" path="res://Assets/audio/theft/LockPick.mp3" id="11_ca3r6"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ft5o5"]
 random_pitch = 1.5
@@ -36,3 +41,22 @@ stream = ExtResource("5_lu82t")
 
 [node name="MenuButtonClick" type="AudioStreamPlayer2D" parent="Effects"]
 stream = ExtResource("6_ft5o5")
+
+[node name="Theft" type="Node2D" parent="."]
+
+[node name="Default" type="AudioStreamPlayer2D" parent="Theft"]
+stream = ExtResource("7_ieupc")
+
+[node name="BrokenLock" type="AudioStreamPlayer2D" parent="Theft"]
+stream = ExtResource("8_b8e2d")
+volume_db = -4.594
+
+[node name="Chainsaw" type="AudioStreamPlayer2D" parent="Theft"]
+stream = ExtResource("9_nmqn7")
+volume_db = -17.67
+
+[node name="BoltCutters" type="AudioStreamPlayer2D" parent="Theft"]
+stream = ExtResource("10_nmqn7")
+
+[node name="Lockpick" type="AudioStreamPlayer2D" parent="Theft"]
+stream = ExtResource("11_ca3r6")
