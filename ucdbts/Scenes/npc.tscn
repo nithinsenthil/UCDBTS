@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqjr0826rxubv"]
+[gd_scene load_steps=22 format=3 uid="uid://bqjr0826rxubv"]
 
 [ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/Player/character.gd" id="1_h1ryf"]
 [ext_resource type="Script" uid="uid://dtlqrpn7k58m4" path="res://Scripts/NPC/locomotion.gd" id="3_g6unj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bi4lqjsd3hba8" path="res://Scripts/NPC/status_sprite.gd" id="4_qi7up"]
 [ext_resource type="Script" uid="uid://b5v770dhitjku" path="res://Scripts/NPC/eyes.gd" id="5_1ig1v"]
 [ext_resource type="Script" uid="uid://cshv1xwljksjt" path="res://Scripts/NPC/ears.gd" id="6_6atyd"]
+[ext_resource type="Script" uid="uid://4npcuqapnyp" path="res://Scripts/NPC/mouth.gd" id="6_a6nw3"]
 [ext_resource type="Script" uid="uid://b71w67wrooovm" path="res://Scripts/NPC/brain.gd" id="7_2xkex"]
 [ext_resource type="Script" uid="uid://bm6ylu365gnma" path="res://Scripts/Debugging/npc_debug_label.gd" id="8_8gudg"]
 [ext_resource type="Texture2D" uid="uid://b4i5rd37065aq" path="res://Assets/character/npc1_sheet.png" id="11_b4syp"]
@@ -14,8 +15,11 @@
 radius = 6.0
 height = 26.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6nw3"]
+radius = 50.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_8gudg"]
-font_size = 10
+font_size = 20
 
 [sub_resource type="Animation" id="Animation_jcef7"]
 length = 0.001
@@ -133,7 +137,7 @@ _data = {
 &"walk_side": SubResource("Animation_mc8fj")
 }
 
-[node name="NPCExample" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_h1ryf")
@@ -162,6 +166,14 @@ visible = false
 position = Vector2(0.22410583, 16.174187)
 collide_with_areas = true
 script = ExtResource("6_6atyd")
+
+[node name="Mouth" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("6_a6nw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
+shape = SubResource("CircleShape2D_a6nw3")
 
 [node name="NPCDebugLabel" type="Label" parent="."]
 visible = false
@@ -200,3 +212,5 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_mc8fj")
 }
+
+[connection signal="body_entered" from="Mouth" to="Mouth" method="_on_body_entered"]

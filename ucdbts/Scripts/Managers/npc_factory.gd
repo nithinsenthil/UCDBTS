@@ -5,7 +5,7 @@ const _npc_scene: PackedScene = preload("res://Scenes/npc.tscn")
 
 
 func new_npc() -> Character:
-	var new_npc_node = _npc_scene.instantiate()
+	var new_npc_node: Character = _npc_scene.instantiate()
 	get_tree().current_scene.add_child(new_npc_node)
 	new_npc_node.set_owner(get_tree().current_scene)
 	
@@ -32,5 +32,7 @@ func new_npc() -> Character:
 			  	Locomotion.MIN_WANDER,
 			  	Locomotion.MAX_WANDER
 		)
+	
+	new_npc_node.z_index = 4
 	
 	return new_npc_node
