@@ -108,9 +108,18 @@ ControlMenu={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_navigation/layer_1="Walkable"
 2d_physics/layer_2="Objects"
+2d_navigation/layer_2="Not Walkable"
 2d_physics/layer_3="Interactions"
+2d_navigation/layer_3="Sidewalk"
 2d_physics/layer_4="NPC"
+2d_physics/layer_5="Road (hack lol)"
+
+[navigation]
+
+2d/merge_rasterizer_cell_scale=0.009999999999999998
+2d/default_edge_connection_margin=32.0
 
 [rendering]
 
