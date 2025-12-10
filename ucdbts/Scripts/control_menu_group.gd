@@ -12,5 +12,5 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ControlMenu"):
 		visible = !visible
-	if ResourceManager._current_level != 1:
-		visible = false
+	#elif ResourceManager._current_level != 1:
+		#visible = false
