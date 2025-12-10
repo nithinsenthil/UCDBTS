@@ -2,9 +2,15 @@ extends CanvasGroup
 
 @onready var exit_button: TextureButton = $TextureButton
 
+
 func _ready():
-	visible = true
+	if ResourceManager._current_level == 1:
+		visible = true
+	else:
+		visible = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ControlMenu"):
 		visible = !visible
+	if ResourceManager._current_level != 1:
+		visible = false

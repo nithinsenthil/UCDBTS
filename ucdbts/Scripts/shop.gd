@@ -69,6 +69,7 @@ func generate_items() -> void:
 
 func _on_leave_shop_pressed() -> void:
 	signals.button_click.emit()
+	signals.leave_shop.emit()
 	ResourceManager.next_level()
 	SceneManager.load_new_scene("res://Scenes/level_1.tscn", "fade_to_black")
 
