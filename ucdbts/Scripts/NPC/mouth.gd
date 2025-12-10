@@ -8,12 +8,14 @@ const STDEV_SENS: float = 0.1
 
 var _sensitivity: float = 1.0
 var _brain: Brain
+var _npc: NPC
 
 
 func _ready() -> void:
 	var c: CollisionShape2D = get_node("CollisionShape2D")
 	c.apply_scale(_sensitivity * Vector2.ONE)
 	_brain = $"../Brain"
+	_npc = $".."
 
 
 # Talk to nearby NPCs if suspicious. Sharing suspicion reduces an NPC's own
@@ -21,4 +23,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Character and body is not Player:
 		if _brain.suspicion > 0.5 * _brain._maximum_suspicion:
 			_brain.suspicion -= (0.25 * _sensitivity) * _brain.suspicion
-			body.get_node("Brain").suspicion += (0.5 * _sensitivity) * _brain.suspicion
+			
+			# Only spread suspicion to NPCs with less suspicion to prevent runaway gossip
+			if (body.get_node("Brain").suspicion < 0.5 * _brain.suspicion):
+				body.get_node("Brain").suspicion += (0.5 * _sensitivity) * _brain.suspicion
+			_npc._on_talk(body)

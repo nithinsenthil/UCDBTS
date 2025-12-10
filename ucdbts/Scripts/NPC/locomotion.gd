@@ -18,6 +18,30 @@ var _noise : FastNoiseLite
 @onready var _brain : Brain = $"../Brain"
 
 
+static func get_facing(vel: Vector2) -> Character.Facing:
+	# Normalize movement direction (magnitude of direction is 1)
+	var direction = (Vector2(vel.x, vel.y)).normalized()
+	
+	# Horizontal movement has higher magnitude than vertical movement
+	var horiz_stronger = abs(direction.x) > abs(direction.y)
+	
+	var facing: Character.Facing = Character.Facing.DOWN
+	
+	# Change NPC facing direction
+	if horiz_stronger:
+		if direction.x > 0:
+			facing = Character.Facing.RIGHT
+		elif vel.x < 0:
+			facing = Character.Facing.LEFT
+	else:
+		if vel.y < 0:
+			facing = Character.Facing.UP
+		elif vel.y > 0:
+			facing = Character.Facing.DOWN
+	
+	return facing
+
+
 # Code adapted from https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html
 func _ready():
 	_nav_agent.path_desired_distance = _DEFAULT_DESIRED_DISTANCE * (1 + _tendency_to_wander)
@@ -82,25 +106,7 @@ func _physics_process(delta):
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	_npc.set_velocity(safe_velocity)
 	
-	# Normalize movement direction (magnitude of direction is 1)
-	var direction = (Vector2(safe_velocity.x, safe_velocity.y)).normalized()
-	
-	# Horizontal movement has higher magnitude than vertical movement
-	var horiz_stronger = abs(direction.x) > abs(direction.y)
-	
-	var facing: Character.Facing = Character.Facing.DOWN
-	
-	# Change NPC facing direction
-	if horiz_stronger:
-		if direction.x > 0:
-			facing = Character.Facing.RIGHT
-		elif safe_velocity.x < 0:
-			facing = Character.Facing.LEFT
-	else:
-		if safe_velocity.y < 0:
-			facing = Character.Facing.UP
-		elif safe_velocity.y > 0:
-			facing = Character.Facing.DOWN
+	var facing := get_facing(safe_velocity)
 	
 	var animation : NPCSprite = get_node("../Sprite2D")
 	animation._on_sprite_change(

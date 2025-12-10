@@ -26,7 +26,13 @@ func new_npc() -> Character:
 			  	Eyes.MIN_SENS,
 			  	Eyes.MAX_SENS
 		)
-		
+	
+	new_npc_node.get_node("Mouth")._sensitivity = \
+	clampf (randfn(Mouth.MEAN_SENS, Mouth.STDEV_SENS),
+		  	Mouth.MIN_SENS,
+		  	Mouth.MAX_SENS
+	)
+	
 	new_npc_node.get_node("Locomotion")._tendency_to_wander = \
 		clampf (randfn(Locomotion.MEAN_WANDER, Locomotion.STDEV_WANDER),
 			  	Locomotion.MIN_WANDER,

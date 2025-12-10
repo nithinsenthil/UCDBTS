@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bqjr0826rxubv"]
 
-[ext_resource type="Script" uid="uid://ulol4fu7adlv" path="res://Scripts/Player/character.gd" id="1_h1ryf"]
+[ext_resource type="Script" uid="uid://bi5hn3b6wtw21" path="res://Scripts/NPC/npc.gd" id="1_a6nw3"]
 [ext_resource type="Script" uid="uid://dtlqrpn7k58m4" path="res://Scripts/NPC/locomotion.gd" id="3_g6unj"]
 [ext_resource type="Script" uid="uid://d4d2vwu4r6l4k" path="res://Scripts/NPC/npc_sprite.gd" id="4_a6nw3"]
 [ext_resource type="Script" uid="uid://bi4lqjsd3hba8" path="res://Scripts/NPC/status_sprite.gd" id="4_qi7up"]
@@ -140,7 +140,7 @@ _data = {
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
-script = ExtResource("1_h1ryf")
+script = ExtResource("1_a6nw3")
 movement_speed = 75
 metadata/_custom_type_script = "uid://ulol4fu7adlv"
 
