@@ -23,6 +23,4 @@ signal player_audially_sus(location: Vector2, sus_level: float)
 signal spawn_npc()
 signal npc_caught_player()
 
-signal leave_shop()
-
 @warning_ignore_restore("unused_signal")
