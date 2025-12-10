@@ -9,7 +9,6 @@ const STDEV_MAX_SUS: float = 10.0
 var suspicion : float = 0.0
 var _maximum_suspicion : float = INF
 
-var _has_caught = false
 var _has_questioned = false
 var _has_exclaimed = false
 
