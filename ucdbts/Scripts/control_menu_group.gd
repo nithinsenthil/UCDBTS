@@ -1,7 +1,5 @@
 extends CanvasGroup
 
-@onready var exit_button: TextureButton = $TextureButton
-
 
 func _ready():
 	if ResourceManager._current_level == 1:
