@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=33 format=4 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -19,7 +19,8 @@
 [ext_resource type="Script" uid="uid://b0odkellsfjw3" path="res://Scripts/bike_4.gd" id="14_oovug"]
 [ext_resource type="Script" uid="uid://beqtptwtchldw" path="res://Scripts/bike_5.gd" id="15_8i23i"]
 [ext_resource type="Texture2D" uid="uid://u3oxm8cgh4ji" path="res://Assets/ui_elements/hud.png" id="17_8yhm2"]
-[ext_resource type="Texture2D" uid="uid://dcosbo7si27vw" path="res://Assets/Autotile_Grass_and_Dirt_Path_Tileset.png" id="20_dlmop"]
+[ext_resource type="Script" uid="uid://bysaeqyiomll0" path="res://Scripts/control_menu_group.gd" id="20_dlmop"]
+[ext_resource type="Texture2D" uid="uid://dcosbo7si27vw" path="res://Assets/Autotile_Grass_and_Dirt_Path_Tileset.png" id="21_1fal7"]
 [ext_resource type="Texture2D" uid="uid://chtcsxrmkf5j0" path="res://Assets/tilemap_packed.png" id="21_sda17"]
 [ext_resource type="Texture2D" uid="uid://d0empoqppq1vg" path="res://Assets/Tileset_Floor_Detail.png" id="22_1fal7"]
 
@@ -41,7 +42,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gcla0"]
-texture = ExtResource("20_dlmop")
+texture = ExtResource("21_1fal7")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -1133,6 +1134,52 @@ script = ExtResource("8_xrdnt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1326, -509)
 shape = SubResource("RectangleShape2D_wrinw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ControlMenuGroup" type="CanvasGroup" parent="CanvasLayer"]
+z_index = 20
+position = Vector2(311, 181)
+script = ExtResource("20_dlmop")
+
+[node name="ControlMenu" type="ColorRect" parent="CanvasLayer/ControlMenuGroup"]
+offset_left = -132.0
+offset_top = -78.0
+offset_right = -92.0
+offset_bottom = -38.0
+scale = Vector2(6.9599996, 4.1999993)
+mouse_filter = 2
+color = Color(0.48188096, 0.36696061, 0.2842038, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlMenuGroup"]
+offset_left = -124.0
+offset_top = -68.0
+offset_right = 139.0
+offset_bottom = 81.0
+text = "Use WASD to move around the world.
+Click F to steal a bike.
+You can store up to 5 bikes in your pocket.
+
+
+
+Click R to toggle this menu, and start.
+Have fun and don't get caught!"
+
+[node name="Label2" type="Label" parent="CanvasLayer/ControlMenuGroup"]
+offset_left = -124.0
+offset_top = -54.0
+offset_right = 139.0
+offset_bottom = 76.0
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = -4
+text = "
+
+
+To sell a bike, go to the shop (located at the top right
+of the map). At the shop, you can also buy power-ups
+to help you steal bikes faster and evade detection.
+"
 
 [node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
 script = ExtResource("9_wrinw")
