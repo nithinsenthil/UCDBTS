@@ -20,6 +20,7 @@ func _ready() -> void:
 	signals.toggle_camera_controls.connect(_on_toggle_camera_controls)
 	signals.bike_minigame_start.connect(_on_bike_minigame_start)
 	signals.bike_minigame_end.connect(_on_bike_minigame_end)
+	_ingest_stats()
 	default_zoom = zoom
 	
 	signals.npc_caught_player.connect(_on_player_caught)
@@ -93,5 +94,7 @@ func _on_bike_minigame_end() -> void:
 	controls_enabled = true
 
 
+func _ingest_stats() -> void:
+	zoom = zoom * ResourceManager.camera_zoom_factor
 func _on_player_caught(npc: Character) -> void:
 	_target = npc

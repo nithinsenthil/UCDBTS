@@ -1,3 +1,6 @@
+# Loading Screen pulled from tutorial with modifications for our use
+# https://www.youtube.com/watch?v=2uYaoQj_6o0
+
 class_name LoadingScreen
 extends Node
 

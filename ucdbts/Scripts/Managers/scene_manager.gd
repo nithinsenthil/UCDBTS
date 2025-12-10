@@ -1,3 +1,6 @@
+# Scene manager pulled from tutorial with modifications for our use
+# https://www.youtube.com/watch?v=2uYaoQj_6o0
+
 extends Node
 
 signal content_finished_loading(content)
