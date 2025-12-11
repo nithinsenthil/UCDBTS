@@ -27,10 +27,6 @@
 
 # External Code, Ideas, and Structure #
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
-
-If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
-
 Starter code for NPC navigation was taken from: https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html
 Scene Manager from tutorial: https://www.youtube.com/watch?v=2uYaoQj_6o0
 
