@@ -10,7 +10,7 @@ func _ready() -> void:
 	texture_path = "res://Assets/items/item1_image.png"
 	icon_path = "res://Assets/items/item1_icon.png"
 	item_desc = "Run 25% faster"
-	
+
 
 func apply_item_effect() -> void:
 	ResourceManager.player_speed += _speed_increase

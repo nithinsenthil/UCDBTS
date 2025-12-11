@@ -10,6 +10,8 @@ func _ready() -> void:
 	texture_path = "res://Assets/items/item3_image.png"
 	icon_path = "res://Assets/items/item3_icon.png"
 	item_desc = "Steal bikes 20%\nfaster"
+	visual_suspicion_multiplier = 1.1
+	audial_suspicion_multiplier = 0.5
 
 
 func apply_item_effect() -> void:

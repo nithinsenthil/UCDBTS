@@ -13,7 +13,7 @@ func _spawn_npc() -> void:
 	var new_target: Vector2 = spawnpoints.pick_random().global_position
 	
 	var new_npc_node: Character = npc_factory.new_npc()
-	new_npc_node.global_position = new_position
+	new_npc_node.global_position = new_position + Vector2.from_angle(randf())
 	
 	var npc_locomotion: Locomotion = new_npc_node.get_node("Locomotion")
 	npc_locomotion.set_movement_target(new_target)
