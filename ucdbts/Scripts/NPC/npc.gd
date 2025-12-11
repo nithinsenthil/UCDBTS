@@ -22,16 +22,9 @@ func _on_talk(_body: Node2D) -> void:
 		pass
 	
 	var npc = _body as NPC
-	
+	self._facing = Locomotion.get_facing(global_position.direction_to(npc.global_position))
 	state = state._on_talk(self)
 	
 	# Cause other NPC to talk to us if not already (avoids recursion)
 	if npc.state is not NPCTalking:
 		npc._on_talk(self)
-	
-	_facing = Locomotion.get_facing(global_position.direction_to(npc.global_position))
-	var animation : NPCSprite = get_node("Sprite2D")
-	animation._on_sprite_change(
-		_facing,
-		Character.Action.IDLE
-	)
