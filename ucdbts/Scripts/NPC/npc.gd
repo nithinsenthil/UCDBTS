@@ -19,9 +19,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_talk(_body: Node2D) -> void:
 	if _body is not NPC:
-		pass
+		return
 	
 	var npc = _body as NPC
+
 	self._facing = Locomotion.get_facing(global_position.direction_to(npc.global_position))
 	state = state._on_talk(self)
 	

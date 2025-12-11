@@ -11,8 +11,8 @@ func _init(npc: NPC) -> void:
 	_timeout = 5.0
 
 
-func _on_talk(npc: NPC) -> NPCState:
-	return NPCTalking.new(npc)
+func _on_talk(__npc: NPC) -> NPCState:
+	return self
 
 
 func _on_tired(npc: NPC) -> NPCState:
