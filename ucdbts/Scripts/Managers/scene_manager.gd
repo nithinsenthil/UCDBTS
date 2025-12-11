@@ -35,6 +35,8 @@ func _ready() -> void:
 
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
+	if loading_screen != null:
+		loading_screen.queue_free()
 	_transition = transition_type
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 	get_tree().root.add_child(loading_screen)
