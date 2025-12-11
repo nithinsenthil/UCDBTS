@@ -59,6 +59,11 @@ func add_bike(bike: Bike) -> bool:
 		_pocket_full = true
 
 	print("Bike stolen")
+	if _held_item != null and _held_item.item_name == "Lockpick":
+		if randf() < 0.75:
+			_held_item.remove_item_effect()
+			_held_item = null
+			get_node("../level_1/Player").ingest_stats()
 	var pockets_display = get_node("../level_1/PocketsDisplay") as Pockets
 	if pockets_display != null:
 		pockets_display.update_label()
@@ -72,7 +77,7 @@ func buy_item(item: Item) -> bool:
 		return false
 	
 	_total_funds -= item.value
-	if item.get_item_name() == "Celsius":
+	if item.get_item_name() == "Kelvin":
 		has_celsius = true
 		celsius = item.duplicate()
 	else:
@@ -110,10 +115,13 @@ func clear_pocket() -> void:
 func wipe_resources() -> void:
 	_total_funds = 0
 	_pocket_value = 0
+	if _held_item != null:
+		_held_item.remove_item_effect()
 	_held_item = null
 	_held_bikes.clear()
 	_pocket_full = false
 	_current_level = 1
+	has_celsius = false
 
 
 func next_level() -> void:
