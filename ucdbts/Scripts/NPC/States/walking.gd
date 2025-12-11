@@ -6,7 +6,7 @@ func _init(npc: NPC) -> void:
 	super(npc)
 	
 	npc.get_node("Locomotion").set_physics_process(true)
-	npc.get_node("Sprite2D")._on_sprite_change(_npc._facing, Character.Action.RUN)
+	npc.get_node("Sprite2D")._on_sprite_change(_npc._facing, Character.Action.WALK)
 	_timeout = 5.0
 
 
