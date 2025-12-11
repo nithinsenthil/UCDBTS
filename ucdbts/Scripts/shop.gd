@@ -54,11 +54,20 @@ func generate_items() -> void:
 	var one:PackedScene = ResourceManager.items_list.pick_random()
 	var two:PackedScene = ResourceManager.items_list.pick_random()
 	
+	first_item = one.instantiate() as Item
+	add_child(first_item)
+	var funds:int = ResourceManager._total_funds + ResourceManager._pocket_value
+	while funds >= 50 and first_item.value > funds:
+		first_item.queue_free()
+		one = ResourceManager.items_list.pick_random()
+		first_item = one.instantiate() as Item
+		add_child(first_item)
+	
 	while one == two:
 		two = ResourceManager.items_list.pick_random()
-	first_item = one.instantiate() as Item
+	
 	second_item = two.instantiate() as Item
-	add_child(first_item)
+	
 	add_child(second_item)
 	first_item_display.texture = load(first_item.texture_path)
 	second_item_display.texture = load(second_item.texture_path)
