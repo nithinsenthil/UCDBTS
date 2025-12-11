@@ -80,8 +80,15 @@ func _physics_process(delta: float) -> void:
 			vm = ResourceManager._held_item.visual_suspicion_multiplier
 			am = ResourceManager._held_item.audial_suspicion_multiplier
 		
-		signals.player_visually_sus.emit(global_position, vm)
-		signals.player_audially_sus.emit(global_position, am)
+		if interactions.current_interaction_object:
+			signals.player_visually_sus.emit(
+				interactions.current_interaction_object.global_position,
+				vm
+			)
+			signals.player_audially_sus.emit(
+				interactions.current_interaction_object.global_position,
+				am
+			)
 	
 	super(delta)
 	
