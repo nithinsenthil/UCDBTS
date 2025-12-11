@@ -104,6 +104,9 @@ func _physics_process(delta):
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	if not is_physics_processing():
+		return
+	
 	_npc.set_velocity(safe_velocity)
 	
 	var facing := get_facing(safe_velocity)
