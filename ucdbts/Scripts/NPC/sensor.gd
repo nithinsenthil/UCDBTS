@@ -30,5 +30,5 @@ func _on_sense(source: Vector2, strength: float) -> void:
 	if self.is_colliding() and not self.get_collider().to_string().contains("Player"):
 		new_suspicion = 0.0
 	
-	# The intensity is proportional to the sensor's sensitivity
-	_brain.suspicion += new_suspicion * _sensitivity
+	# The intensity is proportional to the sensor's sensitivity, but not instantaneous
+	_brain.suspicion += clampf(new_suspicion * _sensitivity, 0.0, _brain._maximum_suspicion / 5.0)

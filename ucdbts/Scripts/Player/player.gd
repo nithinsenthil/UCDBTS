@@ -73,8 +73,22 @@ func _physics_process(delta: float) -> void:
 			$PocketsFullLabel.visible = false
 
 	if interacting:
-		signals.player_visually_sus.emit(global_position, 1.0)
-		signals.player_audially_sus.emit(global_position, 1.0)
+		var vm: float = 1.0
+		var am: float = 1.0
+		
+		if ResourceManager._held_item:
+			vm = ResourceManager._held_item.visual_suspicion_multiplier
+			am = ResourceManager._held_item.audial_suspicion_multiplier
+		
+		if interactions.current_interaction_object:
+			signals.player_visually_sus.emit(
+				interactions.current_interaction_object.global_position,
+				vm
+			)
+			signals.player_audially_sus.emit(
+				interactions.current_interaction_object.global_position,
+				am
+			)
 	
 	super(delta)
 	

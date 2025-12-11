@@ -254,6 +254,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -278,5 +279,5 @@ text = "Pockets are full!"
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, 20)
-radius = 6.0
+radius = 16.0
 avoidance_layers = 2
