@@ -6,4 +6,7 @@ func _ready():
 
 func _button_pressed():
 	signals.button_click.emit()
-	SceneManager.load_new_scene("res://Scenes/introduction.tscn", "fade_to_black")
+	if SceneManager.first_run:
+		SceneManager.load_new_scene("res://Scenes/introduction.tscn", "fade_to_black")
+	else:
+		SceneManager.load_new_scene("res://Scenes/level_1.tscn", "fade_to_black")

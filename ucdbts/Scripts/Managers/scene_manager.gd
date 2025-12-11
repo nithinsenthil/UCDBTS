@@ -16,6 +16,8 @@ var _load_progress_timer: Timer
 var audio_manager
 var title_screen
 
+var first_run: bool
+
 
 func _init() -> void:
 	content_finished_loading.connect(on_content_finished_loading)
@@ -29,6 +31,8 @@ func _ready() -> void:
 	# Auto assign audio manager to the first scene
 	get_node("/root/Title").add_child(audio_manager)
 	
+	first_run = true
+
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
 	_transition = transition_type
