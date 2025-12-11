@@ -11,7 +11,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	state._physics_process(delta) # move_and_slide called here
 	if state.expired:
-		if randf() < 0.33:
+		if randf() < 0.05:
 			state = state._on_tired(self)
 		else:
 			state = state._on_recovered(self)
