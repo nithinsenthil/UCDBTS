@@ -98,7 +98,7 @@ func _physics_process(delta):
 	player_vector = player_vector.normalized() * raw_velocity.distance_to(Vector2.ZERO)
 	player_vector = player_vector * suspicion_scalar
 	player_vector = player_vector * _tendency_to_wander / MEAN_WANDER
-	raw_velocity += player_vector
+	raw_velocity += 1.5 * player_vector
 	
 	_nav_agent.set_velocity(raw_velocity)
 
