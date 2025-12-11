@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://u5cbtsx5gtfs"]
+[gd_scene load_steps=56 format=4 uid="uid://u5cbtsx5gtfs"]
 
 [ext_resource type="PackedScene" uid="uid://gxrmon58v2of" path="res://Scenes/camera.tscn" id="1_lsmp6"]
 [ext_resource type="Script" uid="uid://csmojftlbnmwu" path="res://Scripts/level_1.gd" id="1_wrinw"]
@@ -1346,7 +1346,7 @@ to help you steal bikes faster and evade detection.
 [node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("spawnpoints")]
 script = ExtResource("9_wrinw")
 spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
-max_num_npcs = 40
+max_num_npcs = 20
 
 [node name="SpawnPoint1" type="Node2D" parent="SpawnManager"]
 z_index = 3
