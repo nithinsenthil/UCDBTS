@@ -232,3 +232,48 @@ Doing animations and visuals, I decided to prioritize what I thought would give 
 *Trailer* - I created a 1-minute trailer using gameplay footage. I took footage without audio so I could overlay a single audio track to play smoothly throughout after the initial intro section. [YouTube link](https://www.youtube.com/watch?v=CkUu2t9rGNo)
 
 *Press kit* - I created a press kit website for the game and deployed it on my GitHub pages domain. It includes a call-to-action (CTA) that directs the user to our web release, an embedded version of the trailer, some basic information, and an image gallery. [GitHub pages link](https://naomitzhao.github.io/ecs179-presskit/)
+
+
+
+## Jacob Tkeio ##
+GitHub Username: jacobtkeio
+
+### Main Role: AI and Behavior ###
+*NPC Sensing and Suspicion* - Designed and implemented the NPCs' suspicion system, including hearing, seeing, talking (distributing suspicion between NPCs), and the game's lose condition (when any NPC's suspicion gets too high). Each of these relies heavily on Godot's signal system for inter-node communication. The design was partially inspired by our lecture on Unity's component system, and each 'sensor' node acts like a component of the overall NPC. To facilitate understanding and communication across the team, I made a design document about my planned suspicion system.
+
+* [Suspicion design notes](https://github.com/nithinsenthil/UCDBTS/blob/56c8e426584e5d1feee328b16a5790acd6a9791d/report_materials/suspicion_draft.webp)
+* [Suspicion design document](https://github.com/nithinsenthil/UCDBTS/blob/56c8e426584e5d1feee328b16a5790acd6a9791d/report_materials/UCDBTS_%20Suspicion.pdf)
+* [Commit 2e942a6 (draft ears, eyes, and brain implementation. see especially sensor.gd)](https://github.com/nithinsenthil/UCDBTS/commit/2e942a63c91f3e8090b359ce73dd7410a9fa0518)
+* [Commit 2d6acdf (draft NPC talking)](https://github.com/nithinsenthil/UCDBTS/commit/2d6acdf71d01bba178f83f268936cb4925ad8439)
+* [Commit 8005943 (Make items affect suspicion generation)](https://github.com/nithinsenthil/UCDBTS/commit/8005943c739221096a896680c3736dcf007a1951)
+
+*NPC Movement* - Designed and implemented NPC movement, including 2D navigation across the map (with managed point A to B paths on a baked navmesh), preference for paved surfaces, avoidance of the player and other NPCs, slight path waviness using Perlin noise, player tracking as they get more suspicious, and a probabalistic state machine to keep track of walking and non-walking states. The technical details of NPC movement took up a lot of my development time in learning and tweaking (and we could keep fixing things for weeks I think). Although we didn't cover navigation very heavily in class, I did my best to build of what we did learn to implement the system.
+
+* [Movement design notes](https://github.com/nithinsenthil/UCDBTS/blob/56c8e426584e5d1feee328b16a5790acd6a9791d/report_materials/movement_draft.webp)
+* [Commit e080ef1 (create navmesh and spawn points for final map layout)](https://github.com/nithinsenthil/UCDBTS/commit/e080ef14c828d75a9a6fd44cffbc30d7c7813b65)
+* [locomotion.gd, the main movement script (the history is somewhat tumultuous)](https://github.com/nithinsenthil/UCDBTS/blob/80c2e2c862c4f0b3defbcbb03cfee0bfd6663351/ucdbts/Scripts/NPC/locomotion.gd)
+* [npc_manager.gd, the main spawning logic alongside spawn_manager (as above)](https://github.com/nithinsenthil/UCDBTS/blob/80c2e2c862c4f0b3defbcbb03cfee0bfd6663351/ucdbts/Scripts/Managers/npc_manager.gd)
+* [Commit a5ec42d (NPC movement states w/ state machine design pattern)](https://github.com/nithinsenthil/UCDBTS/commit/a5ec42deccf099d4781c5f32d0a55fb1903ca8ff#diff-d1c832708ac918e836520aee35fd35b0a35ff833ff6fe390d728c39ef11a2ea0)
+
+*NPC Factory and Stats* - Implemented an NPC factory based on the Factory design pattern and normally distributed NPCs stats like hearing and seeing sensitivity, likelihood to talk to other NPCs, and likelihood to wander around. Rather than create an NPC specification class that encompassed all stats for all sub-nodes or create an NPC specification class for each sub-node, I opted for simplicity to define the mean, stdev, min, and max of each stat in each subnode as constants. The Factory reads these and generates an appropriate value for the sub-node's field. This still provides a single interface to the parameters of each variable and is simple to implement.
+
+* [Pre-implementation notes](https://github.com/nithinsenthil/UCDBTS/blob/56c8e426584e5d1feee328b16a5790acd6a9791d/report_materials/npc_factory_draft.webp)
+* [Commit 1307e9a (Adds stat init for ears, eyes, wandering, and suspicion threshold)](https://github.com/nithinsenthil/UCDBTS/commit/1307e9a431cbf8d3432199dd2962f3aa045fcb6c#diff-f0f19c919e8ae63964c6f9f71bc985028e9e048347e9c4421ce6772e89079e6c)
+* [Commit a5ec42d (note the ease of adding a new randomized parameter to npc_factory.gd)](https://github.com/nithinsenthil/UCDBTS/commit/a5ec42deccf099d4781c5f32d0a55fb1903ca8ff#diff-f0f19c919e8ae63964c6f9f71bc985028e9e048347e9c4421ce6772e89079e6c)
+
+This role also involved game design decisions, glue code, and balance tweaks that don't fit neatly into these categories:
+
+* [Commit 0f6f3c1 (create more NPCs on later levels)](https://github.com/nithinsenthil/UCDBTS/commit/0f6f3c162c3f8b2900663d99a5a3549ee59f2ca1)
+* [Commit c830689 (do not show first-time info after failure/exit within the same session)](https://github.com/nithinsenthil/UCDBTS/commit/c8306897ee5a952052b6554ce4da537fff3999c5)
+* [Commit f4aec99 (emit visual NPC status indicators)](https://github.com/nithinsenthil/UCDBTS/commit/f4aec99bd69daa30eea849ffa19344440cb538ec)
+* [Commit 8465491 (remove race condition causing flickering in player animations)](https://github.com/nithinsenthil/UCDBTS/commit/8465491e04536af8e8bd880ea3dde33125f227e1)
+* [Commit 6b4c32f (basic animation for NPC sprites)](https://github.com/nithinsenthil/UCDBTS/commit/6b4c32f8fb080f4e64c894a119e35695f405e754)
+
+
+### Sub-Role: Narrative Design ###
+
+*Introductory Cutscene* - Created a short cutscene to introduce the game and hint at a time-loop plot. Unfortunately I eventually spent the vast majority of my time in this project on the AI and behavior, so I didn't have much time to develop any particularly clever narrative or find ways to illustrate the narrative in the game. When I was ambitious at the start of the project I had hoped to have a long cutscene introducing a plot, dialogue with the shopkeeper, comments from the NPCs during gameplay, and a win condition that would trigger an ending cutscene (see the narrative design brainstorm), and I spent time thinking about how to go about these and discussing them with the group. However, I never settled on an overarching story. This worked out in the end because we knew that UCDBTS wouldn't be a very narrative-heavy game and that I'd mostly be busy working on the AI and behavior. I would still have liked to have done more narrative work, and I feel that I slightly neglected the role, but it came down to a question of bandwidth and priority in a busy quarter. In the end, the story is that the player is stealing bikes on campus in a time-looped day, and they're having a great time! They have not been caught yet, and they don't know what would happen if they were. The shopkeeper seems to know more than they're letting on...
+
+* [Narrative design brainstorm](https://github.com/nithinsenthil/UCDBTS/blob/56c8e426584e5d1feee328b16a5790acd6a9791d/report_materials/narrative_draft.webp)
+* [Commit b028ae6 (Add intro cutscene)](https://github.com/nithinsenthil/UCDBTS/commit/b028ae6198ca0200cf9bd685e28606b39563b13c)
+
